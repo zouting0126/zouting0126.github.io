@@ -152,6 +152,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-清除浮动的几种方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/22/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">清除浮动的几种方式</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/22/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-09-22T02:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-父级div定义伪类-after和zoom和-before"><a href="#1-父级div定义伪类-after和zoom和-before" class="headerlink" title="1.父级div定义伪类:after和zoom和:before"></a>1.父级div定义伪类:after和zoom和:before</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after&#123;display:block;clear:both;content:&quot;&quot;;visibility:hidden;height:0&#125;</span><br><span class="line"> .clearfix&#123;zoom:1&#125;</span><br><span class="line"> </span><br><span class="line"> &lt;div class&#x3D;&quot;clearfix&quot;&gt;</span><br><span class="line"> 	&lt;li class&#x3D;&quot;item&quot;&gt;</span><br><span class="line"> 	&lt;&#x2F;li&gt;</span><br><span class="line"> &lt;&#x2F;div&gt;</span><br><span class="line"> </span><br><span class="line">原理：IE8以上和非IE浏览器才支持:after，zoom(IE转有属性)可解决ie6,ie7浮动问题。</span><br><span class="line">优点：浏览器支持好，不容易出现怪问题（目前：大型网站都有使用，如：腾迅，网易，新浪等等）。</span><br><span class="line">缺点：代码多，要两句代码结合使用，才能让主流浏览器都支持建议：推荐使用，建议定义公共类，以减少CSS代码</span><br><span class="line">在大型项目中，我会使用 clearfix 方法，在需要的地方使用.clearfix</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-父级div定义height"><a href="#2-父级div定义height" class="headerlink" title="2.父级div定义height"></a>2.父级div定义height</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原理：父级div手动定义height，就解决了父级div无法自动获取到浮动子元素脱标的高度的问题。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-父级div定义overflow-hidden"><a href="#3-父级div定义overflow-hidden" class="headerlink" title="3.父级div定义overflow:hidden"></a>3.父级div定义overflow:hidden</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">原理：必须定义zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度</span><br><span class="line">优点：简单，代码少，浏览器支持好</span><br><span class="line">缺点：不能和position配合使用，因为超出的尺寸的会被隐藏。</span><br><span class="line">建议：只推荐没有使用position或对overflow:hidden理解比较深的朋友使用</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .box &#123;</span><br><span class="line">            background: skyblue;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">            zoom: 1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .kid &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .kid1 &#123;</span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .kid2 &#123;</span><br><span class="line">            background: orange;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 150px;</span><br><span class="line">            background: blue;</span><br><span class="line">            color: white;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;kid kid1&quot;&gt;子元素1&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;kid kid2&quot;&gt;子元素2&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;wrap&quot;&gt;其他部分&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-父级div定义overflow-auto"><a href="#4-父级div定义overflow-auto" class="headerlink" title="4.父级div定义overflow:auto"></a>4.父级div定义overflow:auto</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原理：必须定义zoom:1，同时不能定义height(定义高度之后就超出范围隐藏了)，使用overflow:auto时，浏览器会自动检查浮动区域的高度</span><br><span class="line">优点：简单，代码少，浏览器支持好</span><br><span class="line">缺点：内部宽高超过父级div时，会出现滚动条。</span><br><span class="line">建议：不推荐使用，如果你需要出现滚动条或者确保你的代码不会出现滚动条就使用吧。</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-使用空div隔墙-内墙-法：-lt-div-style-quot-clear-both-quot-gt-lt-div-gt"><a href="#5-使用空div隔墙-内墙-法：-lt-div-style-quot-clear-both-quot-gt-lt-div-gt" class="headerlink" title="5.使用空div隔墙(内墙)法：&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;"></a>5.使用空div隔墙(内墙)法：<code>&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原理：添加一个空div，利用css提供的clear:both清除浮动</span><br><span class="line">优点：通俗易懂，容易掌握</span><br><span class="line">缺点：会添加很多无意义的空标签，在后期维护中将是噩梦</span><br><span class="line">建议：不推荐使用，但此方法是以前主要使用的一种清除浮动方法</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">父级div定义伪类:after和zoom和:before、父级div定义height、父级div定义overflow:hidden、父级div定义overflow:auto、使用空div隔墙(内墙)法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/22/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -545,6 +628,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">html5有什么新特性?移除了哪些元素?如何处理htm5新标签的浏览器兼容性问题？如何区分HTML和html5?</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">父级div定义伪类:after和zoom和:before、父级div定义height、父级div定义overflow:hidden、父级div定义overflow:auto、使用空div隔墙(内墙)法</a>
               </li>
             
             <div class="clearfix"></div>

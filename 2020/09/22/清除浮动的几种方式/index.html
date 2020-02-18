@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zouting0126.github.io">
-  <title>Tag: 生命周期执行顺序，生命周期函数使用场景，React v16.3之后的生命周期 | Hexo</title>
+  <title>清除浮动的几种方式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://zouting0126.github.io/tags/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%8CReact-v16-3%E4%B9%8B%E5%90%8E%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
+  <meta name="description" content="1.父级div定义伪类:after和zoom和:before123456789101112.clearfix:after&amp;#123;display:block;clear:both;content:&quot;&quot;;visibility:hidden;height:0&amp;#125; .clearfix&amp;#123;zoom:1&amp;#125;  &lt;div class&#x3D;&quot;c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="清除浮动的几种方式">
+<meta property="og:url" content="https://zouting0126.github.io/2020/09/22/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.父级div定义伪类:after和zoom和:before123456789101112.clearfix:after&amp;#123;display:block;clear:both;content:&quot;&quot;;visibility:hidden;height:0&amp;#125; .clearfix&amp;#123;zoom:1&amp;#125;  &lt;div class&#x3D;&quot;c">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-22T02:15:18.000Z">
+<meta property="article:modified_time" content="2020-02-18T15:22:08.662Z">
 <meta property="article:author" content="淡如夕影">
+<meta property="article:tag" content="父级div定义伪类:after和zoom和:before、父级div定义height、父级div定义overflow:hidden、父级div定义overflow:auto、使用空div隔墙(内墙)法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -150,60 +155,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-清除浮动的几种方式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-08-18T06:12:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">关于对React生命周期函数的理解</a>
+    <h1 class="article-title" itemprop="name">
+      清除浮动的几种方式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/09/22/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-09-22T02:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-父级div定义伪类-after和zoom和-before"><a href="#1-父级div定义伪类-after和zoom和-before" class="headerlink" title="1.父级div定义伪类:after和zoom和:before"></a>1.父级div定义伪类:after和zoom和:before</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after&#123;display:block;clear:both;content:&quot;&quot;;visibility:hidden;height:0&#125;</span><br><span class="line"> .clearfix&#123;zoom:1&#125;</span><br><span class="line"> </span><br><span class="line"> &lt;div class&#x3D;&quot;clearfix&quot;&gt;</span><br><span class="line"> 	&lt;li class&#x3D;&quot;item&quot;&gt;</span><br><span class="line"> 	&lt;&#x2F;li&gt;</span><br><span class="line"> &lt;&#x2F;div&gt;</span><br><span class="line"> </span><br><span class="line">原理：IE8以上和非IE浏览器才支持:after，zoom(IE转有属性)可解决ie6,ie7浮动问题。</span><br><span class="line">优点：浏览器支持好，不容易出现怪问题（目前：大型网站都有使用，如：腾迅，网易，新浪等等）。</span><br><span class="line">缺点：代码多，要两句代码结合使用，才能让主流浏览器都支持建议：推荐使用，建议定义公共类，以减少CSS代码</span><br><span class="line">在大型项目中，我会使用 clearfix 方法，在需要的地方使用.clearfix</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-父级div定义height"><a href="#2-父级div定义height" class="headerlink" title="2.父级div定义height"></a>2.父级div定义height</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原理：父级div手动定义height，就解决了父级div无法自动获取到浮动子元素脱标的高度的问题。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-父级div定义overflow-hidden"><a href="#3-父级div定义overflow-hidden" class="headerlink" title="3.父级div定义overflow:hidden"></a>3.父级div定义overflow:hidden</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">原理：必须定义zoom:1，同时不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度</span><br><span class="line">优点：简单，代码少，浏览器支持好</span><br><span class="line">缺点：不能和position配合使用，因为超出的尺寸的会被隐藏。</span><br><span class="line">建议：只推荐没有使用position或对overflow:hidden理解比较深的朋友使用</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .box &#123;</span><br><span class="line">            background: skyblue;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">            zoom: 1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .kid &#123;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .kid1 &#123;</span><br><span class="line">            background: yellow;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .kid2 &#123;</span><br><span class="line">            background: orange;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .wrap &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 150px;</span><br><span class="line">            background: blue;</span><br><span class="line">            color: white;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;kid kid1&quot;&gt;子元素1&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div class&#x3D;&quot;kid kid2&quot;&gt;子元素2&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;wrap&quot;&gt;其他部分&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-父级div定义overflow-auto"><a href="#4-父级div定义overflow-auto" class="headerlink" title="4.父级div定义overflow:auto"></a>4.父级div定义overflow:auto</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原理：必须定义zoom:1，同时不能定义height(定义高度之后就超出范围隐藏了)，使用overflow:auto时，浏览器会自动检查浮动区域的高度</span><br><span class="line">优点：简单，代码少，浏览器支持好</span><br><span class="line">缺点：内部宽高超过父级div时，会出现滚动条。</span><br><span class="line">建议：不推荐使用，如果你需要出现滚动条或者确保你的代码不会出现滚动条就使用吧。</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-使用空div隔墙-内墙-法：-lt-div-style-quot-clear-both-quot-gt-lt-div-gt"><a href="#5-使用空div隔墙-内墙-法：-lt-div-style-quot-clear-both-quot-gt-lt-div-gt" class="headerlink" title="5.使用空div隔墙(内墙)法：&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;"></a>5.使用空div隔墙(内墙)法：<code>&lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原理：添加一个空div，利用css提供的clear:both清除浮动</span><br><span class="line">优点：通俗易懂，容易掌握</span><br><span class="line">缺点：会添加很多无意义的空标签，在后期维护中将是噩梦</span><br><span class="line">建议：不推荐使用，但此方法是以前主要使用的一种清除浮动方法</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">生命周期执行顺序，生命周期函数使用场景，React v16.3之后的生命周期</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">父级div定义伪类:after和zoom和:before、父级div定义height、父级div定义overflow:hidden、父级div定义overflow:auto、使用空div隔墙(内墙)法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2020/09/22/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/02/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -226,9 +347,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
