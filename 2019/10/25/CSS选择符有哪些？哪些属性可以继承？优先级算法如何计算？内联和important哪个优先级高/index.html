@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zouting0126.github.io">
-  <title>关于async/await的串行和并行问题 | Hexo</title>
+  <title>CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="async和await是es6中的新语法,它的诞生彻底解决了JS回调地狱的问题,在这个语法中,我们可以省去以往的promise语法中.then()的写法 加async修饰的方法有两个作用：1.该方法中可以使用await2.该方法需要返回一个promise">
+  <meta name="description" content="css选择符：123456789101.id选择器（ # myid）2.类选择器（.myclassname）3.标签选择器（div, h1, p）4.相邻选择器（h1 + p）5.子选择器（ul &gt; li）6.后代选择器（li a）7.通配符选择器（ * ）8.属性选择器（a[rel &#x3D; &quot;external&quot;]）9.伪类选择器（a:hover, li:nth-c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于async&#x2F;await的串行和并行问题">
-<meta property="og:url" content="https://zouting0126.github.io/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高">
+<meta property="og:url" content="https://zouting0126.github.io/2019/10/25/CSS%E9%80%89%E6%8B%A9%E7%AC%A6%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%EF%BC%9F%E4%BC%98%E5%85%88%E7%BA%A7%E7%AE%97%E6%B3%95%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%EF%BC%9F%E5%86%85%E8%81%94%E5%92%8Cimportant%E5%93%AA%E4%B8%AA%E4%BC%98%E5%85%88%E7%BA%A7%E9%AB%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="async和await是es6中的新语法,它的诞生彻底解决了JS回调地狱的问题,在这个语法中,我们可以省去以往的promise语法中.then()的写法 加async修饰的方法有两个作用：1.该方法中可以使用await2.该方法需要返回一个promise">
+<meta property="og:description" content="css选择符：123456789101.id选择器（ # myid）2.类选择器（.myclassname）3.标签选择器（div, h1, p）4.相邻选择器（h1 + p）5.子选择器（ul &gt; li）6.后代选择器（li a）7.通配符选择器（ * ）8.属性选择器（a[rel &#x3D; &quot;external&quot;]）9.伪类选择器（a:hover, li:nth-c">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-08-20T02:48:24.000Z">
-<meta property="article:modified_time" content="2020-02-18T15:00:51.618Z">
+<meta property="article:published_time" content="2019-10-25T14:30:52.000Z">
+<meta property="article:modified_time" content="2020-02-18T15:37:20.914Z">
 <meta property="article:author" content="淡如夕影">
+<meta property="article:tag" content="css选择符类型、哪些属性可以继承、优先级算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -154,36 +155,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-关于async-await-的串行和并行问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于async/await的串行和并行问题
+      CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高
     </h1>
   
 
         
-        <a href="/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2019-08-20T02:48:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-20</time>
+        <a href="/2019/10/25/CSS%E9%80%89%E6%8B%A9%E7%AC%A6%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%EF%BC%9F%E4%BC%98%E5%85%88%E7%BA%A7%E7%AE%97%E6%B3%95%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%EF%BC%9F%E5%86%85%E8%81%94%E5%92%8Cimportant%E5%93%AA%E4%B8%AA%E4%BC%98%E5%85%88%E7%BA%A7%E9%AB%98/" class="archive-article-date">
+  	<time datetime="2019-10-25T14:30:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>async和await是es6中的新语法,它的诞生彻底解决了JS回调地狱的问题,在这个语法中,我们可以省去以往的promise语法中.then()的写法</p>
-<h5 id="加async修饰的方法有两个作用："><a href="#加async修饰的方法有两个作用：" class="headerlink" title="加async修饰的方法有两个作用："></a>加async修饰的方法有两个作用：</h5><p>1.该方法中可以使用await<br>2.该方法需要返回一个promise</p>
+        <h5 id="css选择符："><a href="#css选择符：" class="headerlink" title="css选择符："></a>css选择符：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1.id选择器（ # myid）</span><br><span class="line">2.类选择器（.myclassname）</span><br><span class="line">3.标签选择器（div, h1, p）</span><br><span class="line">4.相邻选择器（h1 + p）</span><br><span class="line">5.子选择器（ul &gt; li）</span><br><span class="line">6.后代选择器（li a）</span><br><span class="line">7.通配符选择器（ * ）</span><br><span class="line">8.属性选择器（a[rel &#x3D; &quot;external&quot;]）</span><br><span class="line">9.伪类选择器（a:hover, li:nth-child）</span><br><span class="line">10.伪元素选择器 (div::before   div::after)</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<p>await可以出现在async修饰的方法中，他的意思表示等待异步任务的执行完毕，await后面需要跟一个promise</p>
-<p>比如下面的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">async function request1()&#123;</span><br><span class="line">    let result1 &#x3D; await axios(&quot;http:&#x2F;&#x2F;localhost:8888&#x2F;aa&quot;)</span><br><span class="line">    let result2 &#x3D; await axios(&quot;http:&#x2F;&#x2F;localhost:8888&#x2F;bb&quot;)</span><br><span class="line">&#125;</span><br><span class="line">async function request2()&#123;</span><br><span class="line">    let result3 &#x3D; await axios(&quot;http:&#x2F;&#x2F;localhost:8888&#x2F;cc&quot;)</span><br><span class="line">    let result4 &#x3D; await axios(&quot;http:&#x2F;&#x2F;localhost:8888&#x2F;dd&quot;)</span><br><span class="line">&#125;</span><br><span class="line">request1();</span><br><span class="line">request2();</span><br></pre></td></tr></table></figure>
+<h5 id="哪些属性可以继承"><a href="#哪些属性可以继承" class="headerlink" title="哪些属性可以继承"></a>哪些属性可以继承</h5><pre><code>* 可继承的样式：  font-size   font-family color  line-height  text开头的  opacity
+* 不可继承的样式：border padding margin width height ; </code></pre><h5 id="优先级算法"><a href="#优先级算法" class="headerlink" title="优先级算法"></a>优先级算法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  我们可以给标签的权重为1，class的权重为10，id的权重为100，!important权重无限大来计算css样式的优先级。</span><br><span class="line">     比如    div #box .inner p 权重</span><br><span class="line">                1    100   10      1              总权重112</span><br><span class="line">                </span><br><span class="line">                div .content .inner p权重</span><br><span class="line">                1     10          10      1        总权重22</span><br><span class="line"></span><br><span class="line">1.优先级就近原则，同权重情况下样式定义最近者为准;</span><br><span class="line">2.载入样式同权重下以最后载入的定位为准;</span><br><span class="line">3.!important &gt; 内联  &gt; id &gt; class &gt; tag</span><br></pre></td></tr></table></figure>
 
-<p>此时request1() 和 request2()这两个方法是并行执行的，request1的执行并不会堵塞当前线程<br>而request1中的两个请求是串行执行的，也就是先必须拿到result1的结果后才能继续获取到result2的结果</p>
-<p>因此async/await的结合使用，可以将原来并行执行的异步任务改为串行执行，从而彻底解决js的回调低于的问题</p>
 
       
 
@@ -213,6 +211,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css选择符类型、哪些属性可以继承、优先级算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -263,7 +272,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2019/10/25/CSS%E9%80%89%E6%8B%A9%E7%AC%A6%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%EF%BC%9F%E4%BC%98%E5%85%88%E7%BA%A7%E7%AE%97%E6%B3%95%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%EF%BC%9F%E5%86%85%E8%81%94%E5%92%8Cimportant%E5%93%AA%E4%B8%AA%E4%BC%98%E5%85%88%E7%BA%A7%E9%AB%98/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,18 +286,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/15/html5%E6%96%B0%E7%89%B9%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/18/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          html5新特性
+          Hello World
         
       </div>
     </a>
   
   
-    <a href="/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于对React生命周期函数的理解</div>
+    <a href="/2019/09/15/html5%E6%96%B0%E7%89%B9%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">html5新特性</div>
       <i class="icon-circle-right"></i>
     </a>
   
