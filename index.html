@@ -227,6 +227,134 @@
 
 
   
+    <article id="post-什么是跨域？跨域解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">什么是跨域？跨域解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-11-02T06:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、跨域问题产生的原因："><a href="#一、跨域问题产生的原因：" class="headerlink" title="一、跨域问题产生的原因："></a>一、跨域问题产生的原因：</h4><p>浏览器的同源策略导致了跨域。当我们在前端开发中使用ajax/fetch这些技术发送网络请求的时候，当协议、主机、端口有任何一个不一致的时候，则构成跨域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> 例子:</span><br><span class="line">    域名: http:&#x2F;&#x2F;www.example.com</span><br><span class="line">    跨域请求:</span><br><span class="line">      https:&#x2F;&#x2F;www.example.com &#x2F;&#x2F;协议不同</span><br><span class="line">      http:&#x2F;&#x2F;api.example.com &#x2F;&#x2F;域名不同</span><br><span class="line">      http:&#x2F;&#x2F;www.example.com:8080 &#x2F;&#x2F;端口号不同</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="二、跨域问题有很多中解决方案："><a href="#二、跨域问题有很多中解决方案：" class="headerlink" title="二、跨域问题有很多中解决方案："></a>二、跨域问题有很多中解决方案：</h4><h4 id="1-jsonp"><a href="#1-jsonp" class="headerlink" title="1.jsonp"></a>1.jsonp</h4><p>JSONP 是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，兼容性好（兼容低版本IE），缺点是只支持get请求，不支持post请求。</p>
+<p>他的本质是使用script标签去发送请求，然后服务器返回一段js脚本以供客户端执行</p>
+<p><strong>jsonp实现原理</strong>: </p>
+<p>标签不受浏览器同源策略的影响,允许跨域引用资源。因此可以通过动态创建script标签,然后利用src属性进行跨域。</p>
+<p><strong>JSONP实现方式</strong>:  </p>
+<p>动态创建script标签,通过回调函数处理请求结果<br><strong>JSONP的优点</strong>:<br>  1)可以跨域<br>  2)兼容性好<br><strong>JSONP的缺点</strong>:<br>  1)只能支持GET请求,JSONP在调用失败时不会返回各种HTTP状态码<br>  2)安全性。如果提供JSONP的服务被人控制,那么所有调用这个JSONP的网站都存在漏洞。<br>下面是通过JSONP调用百度搜索的例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;HTML</span><br><span class="line">&lt;div class&#x3D;&quot;wrap&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot;&gt;</span><br><span class="line">        &lt;ul&gt;&lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;&#x2F;JS</span><br><span class="line">let inpEle &#x3D; document.querySelector(&#39;input&#39;);</span><br><span class="line">    let ulEle &#x3D; document.querySelector(&#39;ul&#39;);</span><br><span class="line">    let interval &#x3D; 0;</span><br><span class="line"></span><br><span class="line">    function searchData(data) &#123;</span><br><span class="line">        if (data.g) &#123;</span><br><span class="line">            let result &#x3D; data.g;</span><br><span class="line">            let fragment &#x3D; document.createDocumentFragment();</span><br><span class="line">            let html &#x3D; &#39;&#39;;</span><br><span class="line">            result.forEach( (item) &#x3D;&gt; &#123;</span><br><span class="line">                html +&#x3D; &#96;&lt;li&gt;&lt;a target&#x3D;&quot;_blank&quot; href&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&#x2F;s?wd&#x3D;$&#123;item.q&#125;&quot;&gt;$&#123;item.q&#125;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;&#96;;</span><br><span class="line">            &#125; )</span><br><span class="line">            ulEle.innerHTML &#x3D; html;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            ulEle.innerHTML &#x3D; &#39;&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    let scriptEle &#x3D; null;</span><br><span class="line">    inpEle.oninput &#x3D; search;</span><br><span class="line">    function search() &#123;</span><br><span class="line">        let val &#x3D; inpEle.value;</span><br><span class="line">        let now &#x3D; new Date().getTime();</span><br><span class="line"></span><br><span class="line">        if (now - interval &gt; 300) &#123;</span><br><span class="line">            if (scriptEle) &#123;</span><br><span class="line">                scriptEle.remove();</span><br><span class="line">            &#125;</span><br><span class="line">            scriptEle &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">            &#x2F;&#x2F; wd后面接的是关键字,cb后面接的回调函数的名称</span><br><span class="line">            let url &#x3D; &#39;https:&#x2F;&#x2F;www.baidu.com&#x2F;sugrec?ie&#x3D;utf-8&amp;json&#x3D;1&amp;from&#x3D;pc_web&amp;prod&#x3D;pc&amp;wd&#x3D;&#39;+ val + &#39;&amp;req&#x3D;2&amp;cb&#x3D;searchData&#39;</span><br><span class="line">            scriptEle.src &#x3D; url;</span><br><span class="line">            document.body.appendChild(scriptEle);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-cors"><a href="#2-cors" class="headerlink" title="2.cors"></a>2.cors</h5><p>CORS 是跨域资源分享（Cross-Origin Resource Sharing）的缩写。它是 W3C 标准，属于跨源 AJAX 请求的根本解决方法。</p>
+<p>他需要在服务器端配置跨域访问的响应头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res.writeHead(200, &#123;</span><br><span class="line">    &quot;Content-Type&quot;: &quot;text&#x2F;html; charset&#x3D;UTF-8&quot;,</span><br><span class="line">    &quot;Access-Control-Allow-Origin&quot;:&#39;http:&#x2F;&#x2F;localhost&#39;,</span><br><span class="line">    &#39;Access-Control-Allow-Methods&#39;: &#39;GET, POST, OPTIONS&#39;,</span><br><span class="line">    &#39;Access-Control-Allow-Headers&#39;: &#39;X-Requested-With, Content-Type&#39;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-配置devserver的proxy（只在开发环境下有效）"><a href="#3-配置devserver的proxy（只在开发环境下有效）" class="headerlink" title="3.配置devserver的proxy（只在开发环境下有效）"></a>3.配置devserver的proxy（只在开发环境下有效）</h5><p>在前端的工程化项目(webpack)中,我们可以通过配置devserver的proxy来解决跨域访问的问题。他的原理是在本地开启一个服务器向数据服务器发送请求，因为服务器和服务器之间是没有跨域。</p>
+<p>vue代理配置:</p>
+<p><img src="https://segmentfault.com/img/bVbx8ql?w=895&h=241" alt="图片描述"></p>
+<h5 id="4-配置服务器的反向代理"><a href="#4-配置服务器的反向代理" class="headerlink" title="4.配置服务器的反向代理"></a>4.配置服务器的反向代理</h5><p>因为webpack的devserver只在开发环境下有效，当项目发布上线之后仍然会有跨域问题，为了解决项目上线的跨域问题，我们配置服务器的反向代理（Apache/ngix）来实现跨域请求 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">具体配置:</span><br><span class="line">  1)安装nginx: [http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;download....](http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;download.html) ,在其中选择要安装的版本,安装完成后解压</span><br><span class="line">  2)配置要被代理的服务:</span><br><span class="line">    在nginx-1.16.1 &#x3D;&#x3D;&gt; conf &#x3D;&#x3D;&gt; nginx.conf里进行配置(代码中找到server在里面添加代理即可):</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> server&#123;</span><br><span class="line">       listen               80; &#x2F;&#x2F;监听的端口</span><br><span class="line">       server_name          localhost; &#x2F;&#x2F; 在浏览器访问的host-name,根据这个来判断要代理到什么地方</span><br><span class="line">        &#x2F;&#x2F;    要代理的内容</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 第一步(可以不用)  进行反向代理,用localhost:80来代理http:&#x2F;&#x2F;127.0.0.1:8081的请求,可以根据自己起的本地服务器来进行修改</span><br><span class="line">            location &#x2F; &#123;</span><br><span class="line">                proxy_pass  http:&#x2F;&#x2F;127.0.0.1:8081;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; 第二步  接口代理,在&#x2F;api的前面添加添加上指定的域名</span><br><span class="line">            location &#x2F;api &#123;</span><br><span class="line">                proxy_pass http:&#x2F;&#x2F;1.1.1.1:8080;  &#x2F;&#x2F; 将&#x2F;api的接口反向代理到这个服务器上,从而实现了跨域</span><br><span class="line">            &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注:第一步是需要本地用编辑器起一个服务器,然后nginx做反向代理,从而实现在80端口下,访问非80端口的页面,这个配置完成后,浏览器的访问地址应该改为<br>localhost/index.html ；若是不想这么麻烦,可以在先将nginx-1.16.1 ==&gt;<br>html下的页面删掉,然后将代码移动到该位置即可,访问的地址为 <a href="http://localhost/index.html" target="_blank" rel="noopener">http://localhost/index.html</a><br>  3)启动nginx.exe</p>
+<h5 id="5-配置axios-default-baseURL"><a href="#5-配置axios-default-baseURL" class="headerlink" title="5.配置axios.default.baseURL"></a>5.配置axios.default.baseURL</h5><p>除此之外，我还知道当项目打包成apk之后就不存在跨域问题了，所以如果项目要打包成apk，我们需要在项目中的所有请求中写全路径(此时我们可以配置axios.default.baseURL来解决)</p>
+<h5 id="6-iframe-嵌套通讯，postmessage"><a href="#6-iframe-嵌套通讯，postmessage" class="headerlink" title="6.iframe 嵌套通讯，postmessage"></a>6.iframe 嵌套通讯，postmessage</h5><p>postMessage 是 HTML5 XMLHttpRequest Level 2 中的 API，且是为数不多可以跨域操作的 window 属性之一，它可用于解决以下方面的问题：</p>
+<ul>
+<li><p>页面和其打开的新窗口的数据传递</p>
+</li>
+<li><p>多窗口之间消息传递</p>
+</li>
+<li><p>页面与嵌套的 iframe 消息传递</p>
+</li>
+<li><p>上面三个场景的跨域数据传递</p>
+<p><strong>postMessage()方法允许来自不同源的脚本采用异步方式进行有限的通信，可以实现跨文本档、多窗口、跨域消息传递</strong>。</p>
+<blockquote>
+<p>otherWindow.postMessage(message, targetOrigin, [transfer]);</p>
+</blockquote>
+<ul>
+<li><p>message: 将要发送到其他 window 的数据。</p>
+</li>
+<li><p>targetOrigin：通过窗口的  origin 属性来指定哪些窗口能接收到消息事件，其值可以是字符串”*”（表示无限制）或者一个  URI。在发送消息的时候，如果目标窗口的协议、主机地址或端口这三者的任意一项不匹配 targetOrigin  提供的值，那么消息就不会被发送；只有三者完全匹配，消息才会被发送。</p>
+</li>
+<li><p>transfer(可选)：是一串和 message 同时传递的 Transferable 对象. 这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。</p>
+<p>接下来我们看个例子： <code>http://localhost:3000/a.html</code>页面向</p>
+<p><code>http://localhost:4000/b.html</code>传递“我爱你”,然后后者传回”我不爱你”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.html</span></span><br><span class="line">  &lt;iframe src=<span class="string">"http://localhost:4000/b.html"</span> frameborder=<span class="string">"0"</span> id=<span class="string">"frame"</span> onload=<span class="string">"load()"</span>&gt;&lt;<span class="regexp">/iframe&gt; /</span><span class="regexp">/等它加载完触发一个事件</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/内嵌在http:/</span><span class="regexp">/localhost:3000/</span>a.html</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">load</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> frame = <span class="built_in">document</span>.getElementById(<span class="string">'frame'</span>)</span><br><span class="line">        frame.contentWindow.postMessage(<span class="string">'我爱你'</span>, <span class="string">'http://localhost:4000'</span>) <span class="comment">//发送数据</span></span><br><span class="line">        <span class="built_in">window</span>.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="comment">//接受返回数据</span></span><br><span class="line">          <span class="built_in">console</span>.log(e.data) <span class="comment">//我不爱你</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ b.html</span></span><br><span class="line"><span class="regexp">  window.onmessage = function(e) &#123;</span></span><br><span class="line"><span class="regexp">    console.log(e.data) /</span><span class="regexp">/我爱你</span></span><br><span class="line"><span class="regexp">    e.source.postMessage('我不爱你', e.origin)</span></span><br><span class="line"><span class="regexp"> &#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<p>参考资料:<br>  浏览器同源策略及跨域的解决方法: <a href="https://www.cnblogs.com/laixiangran/p/9064769.html" target="_blank" rel="noopener">https://www.cnblogs.com/laixi…</a><br>  MDN上的同源策略: <a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="noopener">https://developer.mozilla.org…</a><br>  MDN上的CORS: <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">https://developer.mozilla.org…</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">跨域问题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -794,6 +922,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端模块化、模块化方案的好处</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">跨域问题</a>
               </li>
             
             <div class="clearfix"></div>

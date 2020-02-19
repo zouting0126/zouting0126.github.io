@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zouting0126.github.io">
-  <title>关于对React生命周期函数的理解 | Hexo</title>
+  <title>什么是跨域？跨域解决方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="顾名思义：组件的生命周期函数就是贯穿一个组件从出生（挂载）到死亡（卸载）这段时间中 特殊时间点所会触发的函数 一、生命周期执行顺序（1）、挂载　　componentWillMount() ——&gt; render() ——&gt; componentDidMount() （2）、更新　　1、props更新，父级组件重新渲染">
+  <meta name="description" content="一、跨域问题产生的原因：浏览器的同源策略导致了跨域。当我们在前端开发中使用ajax&#x2F;fetch这些技术发送网络请求的时候，当协议、主机、端口有任何一个不一致的时候，则构成跨域。 123456 例子:    域名: http:&#x2F;&#x2F;www.example.com    跨域请求:      https:&#x2F;&#x2F;www.example.com &#x2F;&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于对React生命周期函数的理解">
-<meta property="og:url" content="https://zouting0126.github.io/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="什么是跨域？跨域解决方法">
+<meta property="og:url" content="https://zouting0126.github.io/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="顾名思义：组件的生命周期函数就是贯穿一个组件从出生（挂载）到死亡（卸载）这段时间中 特殊时间点所会触发的函数 一、生命周期执行顺序（1）、挂载　　componentWillMount() ——&gt; render() ——&gt; componentDidMount() （2）、更新　　1、props更新，父级组件重新渲染">
+<meta property="og:description" content="一、跨域问题产生的原因：浏览器的同源策略导致了跨域。当我们在前端开发中使用ajax&#x2F;fetch这些技术发送网络请求的时候，当协议、主机、端口有任何一个不一致的时候，则构成跨域。 123456 例子:    域名: http:&#x2F;&#x2F;www.example.com    跨域请求:      https:&#x2F;&#x2F;www.example.com &#x2F;&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-08-18T06:12:13.000Z">
-<meta property="article:modified_time" content="2020-02-18T07:21:57.623Z">
+<meta property="og:image" content="https://segmentfault.com/img/bVbx8ql?w=895&h=241">
+<meta property="article:published_time" content="2019-11-02T06:31:52.000Z">
+<meta property="article:modified_time" content="2020-02-19T08:29:40.705Z">
 <meta property="article:author" content="淡如夕影">
-<meta property="article:tag" content="生命周期执行顺序，生命周期函数使用场景，React v16.3之后的生命周期">
+<meta property="article:tag" content="跨域问题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVbx8ql?w=895&h=241">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -155,73 +157,81 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我个人博客的第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-什么是跨域？跨域解决方法" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于对React生命周期函数的理解
+      什么是跨域？跨域解决方法
     </h1>
   
 
         
-        <a href="/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-08-18T06:12:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
+        <a href="/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-11-02T06:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>顾名思义：组件的生命周期函数就是贯穿一个组件从出生（挂载）到死亡（卸载）这段时间中 特殊时间点所会触发的函数</p>
-<h4 id="一、生命周期执行顺序"><a href="#一、生命周期执行顺序" class="headerlink" title="一、生命周期执行顺序"></a><strong>一、生命周期执行顺序</strong></h4><h5 id="（1）、挂载"><a href="#（1）、挂载" class="headerlink" title="（1）、挂载"></a>（1）、挂载</h5><p>　　componentWillMount() ——&gt; render() ——&gt; componentDidMount()</p>
-<h5 id="（2）、更新"><a href="#（2）、更新" class="headerlink" title="（2）、更新"></a>（2）、更新</h5><p>　　1、props更新，父级组件重新渲染</p>
-<a id="more"></a>
+        <h4 id="一、跨域问题产生的原因："><a href="#一、跨域问题产生的原因：" class="headerlink" title="一、跨域问题产生的原因："></a>一、跨域问题产生的原因：</h4><p>浏览器的同源策略导致了跨域。当我们在前端开发中使用ajax/fetch这些技术发送网络请求的时候，当协议、主机、端口有任何一个不一致的时候，则构成跨域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> 例子:</span><br><span class="line">    域名: http:&#x2F;&#x2F;www.example.com</span><br><span class="line">    跨域请求:</span><br><span class="line">      https:&#x2F;&#x2F;www.example.com &#x2F;&#x2F;协议不同</span><br><span class="line">      http:&#x2F;&#x2F;api.example.com &#x2F;&#x2F;域名不同</span><br><span class="line">      http:&#x2F;&#x2F;www.example.com:8080 &#x2F;&#x2F;端口号不同</span><br></pre></td></tr></table></figure>
 
-<p>　　componentWillReceiveProps(nextProps) ——&gt; shouldComponentUpdata(nextProps, nextState) 或</p>
-<p>　　componentWillReceiveProps(nextProps) ——&gt;  shouldComponentUpdata(nextProps, nextState) ——&gt;  componentWillUpdate(nextProps, nextState) ——&gt; render() ——&gt;  componentDidUpdate(prevProps, prevState)</p>
-<p>　　2、state更新，自身状态发生改变</p>
-<p>　　shouldComponentUpdate(nextProps, nextState) 或</p>
-<p>　　shouldComponentUpdate(nextProps, nextState) ——&gt;  componentWillUpdate(nextProps, nextState) ——&gt; render() ——&gt;  componentDidUpdate()</p>
-<h5 id="（3）、卸载"><a href="#（3）、卸载" class="headerlink" title="（3）、卸载"></a>（3）、卸载</h5><p>　　componentWillUnmount()</p>
-<h4 id="二、生命周期函数使用场景"><a href="#二、生命周期函数使用场景" class="headerlink" title="二、生命周期函数使用场景"></a><strong>二、生命周期函数使用场景</strong></h4><h5 id="（1）componentWillMount"><a href="#（1）componentWillMount" class="headerlink" title="（1）componentWillMount()"></a>（1）componentWillMount()</h5><p>　　组件挂载阶段，render执行前执行。可以根据props进行setState，render会感知到更新后的state，仅会执行一次，不会触发重新渲染。</p>
-<p>　　这里不建议发送AJAX请求，由于请求是异步的，在接下来的第一次render中，一定获取不到响应数据。</p>
-<h5 id="2-render"><a href="#2-render" class="headerlink" title="(2) render()"></a>(2) render()</h5><p>　　该方法创建一个虚拟dom，表示组件的输出。（输出可以应用到react-dom，react-native）</p>
-<h5 id="（3）componentDidMount"><a href="#（3）componentDidMount" class="headerlink" title="（3）componentDidMount()"></a>（3）componentDidMount()</h5><p>　　组件挂载完毕，已经生成真实DOM。</p>
-<p>　　可以对DOM节点进行操作，设置定时器，发送AJAX请求</p>
-<h5 id="4-componentWillReceiveProps-nextProps"><a href="#4-componentWillReceiveProps-nextProps" class="headerlink" title="(4)  componentWillReceiveProps(nextProps)"></a>(4)  componentWillReceiveProps(nextProps)</h5><p>　　已挂载组件在接收到新的props时会触发，这里的新的props有点歧义，可以理解为只要父组件重新渲染，子组件就会接收到新的props，从而触发这个方法。</p>
-<p>　　当props发生变化，组件自身状态需要做出改变，即state做出对应响应时，可以在此方法中执行；</p>
-<p>　（5）shouldComponentUpdate(nextProps, nextState)</p>
-<p>　　接收到新的props或state，判断是否需要发生重新渲染，默认返回true，表示重新渲染</p>
-<p>　　该方法在首次渲染或者forceUpdate时不会触发</p>
-<h5 id="（6）componentWillUpdate-nextProps-nextState"><a href="#（6）componentWillUpdate-nextProps-nextState" class="headerlink" title="（6）componentWillUpdate(nextProps, nextState)"></a>（6）componentWillUpdate(nextProps, nextState)</h5><p>　　该方法中禁止调用this.setState()方法</p>
-<p>　　使用该方法做一些更新之前的准备工作</p>
-<h5 id="（7）componentDidUpdate-prevProps-prevState"><a href="#（7）componentDidUpdate-prevProps-prevState" class="headerlink" title="（7）componentDidUpdate(prevProps, prevState)"></a>（7）componentDidUpdate(prevProps, prevState)</h5><p>　　 在组件的更新已经同步到dom上立即调用，可以操作更新之后的dom</p>
-<h5 id="（8）componentWillUnmount"><a href="#（8）componentWillUnmount" class="headerlink" title="（8）componentWillUnmount()"></a>（8）componentWillUnmount()</h5><p>　　在组件卸载之前调用，一般进行清除定时器，取消请求或清除在componentDidMount中创建的DOM元素等操作</p>
-<h4 id="三、React-v16-3之后的生命周期"><a href="#三、React-v16-3之后的生命周期" class="headerlink" title="三、React v16.3之后的生命周期"></a>三、React v16.3之后的生命周期</h4><p>　　首先说一下React同步更新导致的性能问题：</p>
-<p>　　组件更新需要耗费时间，当存在多重组件嵌套时，最顶部的父级组件更新导致下级的组件也要更新时，会占据大量的时间。浏览器的GPU在这段时间内只能进行更新工作，没办法做其他的事情，此时用户也无法与其进行交互，造成浏览器卡顿的现象。</p>
-<p>　　解决方案：分片更新</p>
-<p>　　React Fiber将更新过程碎片化，每执行一段更新过程，就把控制权交换给React负责任务协调的模块，看看是否有其他更紧急的任务要做，如果没有就继续更新，如果有紧急任务，就执行紧急任务，执行完毕之后从头开始进行更新任务。</p>
-<p>　　更新过程：以render为界分为两个阶段,Reconciliation Phase（调和） 和 Commit Phase（重构）</p>
-<p>　　第一个过程会找出需要更新哪些DOM，该过程可以被打断；</p>
-<p>　　第二个阶段会把需要更新的DOM进行更新操作，不可打断</p>
-<p>　　第一阶段可能会执行以下生命周期函数:componentWillMount、componentWillReceiveProps、shouldComponentUpdate、componentWillUpdate</p>
-<p>　　第二个阶段：componentDidMount、componentDidUpdate、componentWillUnmount</p>
-<p>　　第一阶段的生命周期函数在16.3由于采用分片更新可能会出现调用多次的情况,故废弃了componentWillReceiveProps、componentWillMount、componentWillUpdate，用getDerivedStateFromProps替代，目的在于强制开发者在render之前只做无副作用的操作。而且所作的操作也仅限于根据nextProps和nextState设置state。</p>
-<p>　　getDerivedStateFromProps(nextProps, nextState)是一个静态函数，内部不能访问this。根据nextProps和nextState计算出预期的状态改变，返回结果会被送给setState</p>
-<p>　　getSnapshotBeforeUpdate() 在render之后，componentDidUpdate之前执行</p>
-<p>故16.3之后的挂载、更新和卸载执行顺序为：</p>
-<p>挂载：getDerivedStateFromProps(nextProps, nextState) ——&gt; render() ——&gt; componentDidMount()</p>
-<p>更新：</p>
-<p>　　props更新：getDerivedStateFromProps(nextProps, nextState) ——&gt;  shouldComponentUpdate(nextProps, nextState)——&gt; render——&gt;  getSnapshotBeforeUpdate(prevProps, prevState)——&gt;  componentDidUpdate(prevProps, prevState, snapShot);</p>
-<p>　　state更新：shouldComponentUpdate(nextProps, nextState)——&gt;  render——&gt; getSnapshotBeforeUpdate(prevProps, prevState)——&gt;  componentDidUpdate(prevProps, prevState, snapShot);</p>
-<p>卸载： componentWillUnmount()</p>
-<p>引用：<a href="https://moeover.com/2017/01/17/understand-react-lifecycle.html" target="_blank" rel="noopener">https://moeover.com/2017/01/17/understand-react-lifecycle.html</a></p>
-<p>　　　<a href="https://wiki.jikexueyuan.com/project/react/component-specs-lifecycle.html" target="_blank" rel="noopener">https://wiki.jikexueyuan.com/project/react/component-specs-lifecycle.html</a></p>
-<p>　　　<a href="https://zhuanlan.zhihu.com/p/38030418" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38030418</a></p>
-<p>　　　<a href="https://zhuanlan.zhihu.com/p/26027085" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26027085</a></p>
+
+
+<h4 id="二、跨域问题有很多中解决方案："><a href="#二、跨域问题有很多中解决方案：" class="headerlink" title="二、跨域问题有很多中解决方案："></a>二、跨域问题有很多中解决方案：</h4><h4 id="1-jsonp"><a href="#1-jsonp" class="headerlink" title="1.jsonp"></a>1.jsonp</h4><p>JSONP 是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，兼容性好（兼容低版本IE），缺点是只支持get请求，不支持post请求。</p>
+<p>他的本质是使用script标签去发送请求，然后服务器返回一段js脚本以供客户端执行</p>
+<p><strong>jsonp实现原理</strong>: </p>
+<p>标签不受浏览器同源策略的影响,允许跨域引用资源。因此可以通过动态创建script标签,然后利用src属性进行跨域。</p>
+<p><strong>JSONP实现方式</strong>:  </p>
+<p>动态创建script标签,通过回调函数处理请求结果<br><strong>JSONP的优点</strong>:<br>  1)可以跨域<br>  2)兼容性好<br><strong>JSONP的缺点</strong>:<br>  1)只能支持GET请求,JSONP在调用失败时不会返回各种HTTP状态码<br>  2)安全性。如果提供JSONP的服务被人控制,那么所有调用这个JSONP的网站都存在漏洞。<br>下面是通过JSONP调用百度搜索的例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;HTML</span><br><span class="line">&lt;div class&#x3D;&quot;wrap&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot;&gt;</span><br><span class="line">        &lt;ul&gt;&lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;&#x2F;JS</span><br><span class="line">let inpEle &#x3D; document.querySelector(&#39;input&#39;);</span><br><span class="line">    let ulEle &#x3D; document.querySelector(&#39;ul&#39;);</span><br><span class="line">    let interval &#x3D; 0;</span><br><span class="line"></span><br><span class="line">    function searchData(data) &#123;</span><br><span class="line">        if (data.g) &#123;</span><br><span class="line">            let result &#x3D; data.g;</span><br><span class="line">            let fragment &#x3D; document.createDocumentFragment();</span><br><span class="line">            let html &#x3D; &#39;&#39;;</span><br><span class="line">            result.forEach( (item) &#x3D;&gt; &#123;</span><br><span class="line">                html +&#x3D; &#96;&lt;li&gt;&lt;a target&#x3D;&quot;_blank&quot; href&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&#x2F;s?wd&#x3D;$&#123;item.q&#125;&quot;&gt;$&#123;item.q&#125;&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;&#96;;</span><br><span class="line">            &#125; )</span><br><span class="line">            ulEle.innerHTML &#x3D; html;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            ulEle.innerHTML &#x3D; &#39;&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    let scriptEle &#x3D; null;</span><br><span class="line">    inpEle.oninput &#x3D; search;</span><br><span class="line">    function search() &#123;</span><br><span class="line">        let val &#x3D; inpEle.value;</span><br><span class="line">        let now &#x3D; new Date().getTime();</span><br><span class="line"></span><br><span class="line">        if (now - interval &gt; 300) &#123;</span><br><span class="line">            if (scriptEle) &#123;</span><br><span class="line">                scriptEle.remove();</span><br><span class="line">            &#125;</span><br><span class="line">            scriptEle &#x3D; document.createElement(&#39;script&#39;);</span><br><span class="line">            &#x2F;&#x2F; wd后面接的是关键字,cb后面接的回调函数的名称</span><br><span class="line">            let url &#x3D; &#39;https:&#x2F;&#x2F;www.baidu.com&#x2F;sugrec?ie&#x3D;utf-8&amp;json&#x3D;1&amp;from&#x3D;pc_web&amp;prod&#x3D;pc&amp;wd&#x3D;&#39;+ val + &#39;&amp;req&#x3D;2&amp;cb&#x3D;searchData&#39;</span><br><span class="line">            scriptEle.src &#x3D; url;</span><br><span class="line">            document.body.appendChild(scriptEle);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-cors"><a href="#2-cors" class="headerlink" title="2.cors"></a>2.cors</h5><p>CORS 是跨域资源分享（Cross-Origin Resource Sharing）的缩写。它是 W3C 标准，属于跨源 AJAX 请求的根本解决方法。</p>
+<p>他需要在服务器端配置跨域访问的响应头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res.writeHead(200, &#123;</span><br><span class="line">    &quot;Content-Type&quot;: &quot;text&#x2F;html; charset&#x3D;UTF-8&quot;,</span><br><span class="line">    &quot;Access-Control-Allow-Origin&quot;:&#39;http:&#x2F;&#x2F;localhost&#39;,</span><br><span class="line">    &#39;Access-Control-Allow-Methods&#39;: &#39;GET, POST, OPTIONS&#39;,</span><br><span class="line">    &#39;Access-Control-Allow-Headers&#39;: &#39;X-Requested-With, Content-Type&#39;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-配置devserver的proxy（只在开发环境下有效）"><a href="#3-配置devserver的proxy（只在开发环境下有效）" class="headerlink" title="3.配置devserver的proxy（只在开发环境下有效）"></a>3.配置devserver的proxy（只在开发环境下有效）</h5><p>在前端的工程化项目(webpack)中,我们可以通过配置devserver的proxy来解决跨域访问的问题。他的原理是在本地开启一个服务器向数据服务器发送请求，因为服务器和服务器之间是没有跨域。</p>
+<p>vue代理配置:</p>
+<p><img src="https://segmentfault.com/img/bVbx8ql?w=895&h=241" alt="图片描述"></p>
+<h5 id="4-配置服务器的反向代理"><a href="#4-配置服务器的反向代理" class="headerlink" title="4.配置服务器的反向代理"></a>4.配置服务器的反向代理</h5><p>因为webpack的devserver只在开发环境下有效，当项目发布上线之后仍然会有跨域问题，为了解决项目上线的跨域问题，我们配置服务器的反向代理（Apache/ngix）来实现跨域请求 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">具体配置:</span><br><span class="line">  1)安装nginx: [http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;download....](http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;download.html) ,在其中选择要安装的版本,安装完成后解压</span><br><span class="line">  2)配置要被代理的服务:</span><br><span class="line">    在nginx-1.16.1 &#x3D;&#x3D;&gt; conf &#x3D;&#x3D;&gt; nginx.conf里进行配置(代码中找到server在里面添加代理即可):</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> server&#123;</span><br><span class="line">       listen               80; &#x2F;&#x2F;监听的端口</span><br><span class="line">       server_name          localhost; &#x2F;&#x2F; 在浏览器访问的host-name,根据这个来判断要代理到什么地方</span><br><span class="line">        &#x2F;&#x2F;    要代理的内容</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 第一步(可以不用)  进行反向代理,用localhost:80来代理http:&#x2F;&#x2F;127.0.0.1:8081的请求,可以根据自己起的本地服务器来进行修改</span><br><span class="line">            location &#x2F; &#123;</span><br><span class="line">                proxy_pass  http:&#x2F;&#x2F;127.0.0.1:8081;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            &#x2F;&#x2F; 第二步  接口代理,在&#x2F;api的前面添加添加上指定的域名</span><br><span class="line">            location &#x2F;api &#123;</span><br><span class="line">                proxy_pass http:&#x2F;&#x2F;1.1.1.1:8080;  &#x2F;&#x2F; 将&#x2F;api的接口反向代理到这个服务器上,从而实现了跨域</span><br><span class="line">            &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注:第一步是需要本地用编辑器起一个服务器,然后nginx做反向代理,从而实现在80端口下,访问非80端口的页面,这个配置完成后,浏览器的访问地址应该改为<br>localhost/index.html ；若是不想这么麻烦,可以在先将nginx-1.16.1 ==&gt;<br>html下的页面删掉,然后将代码移动到该位置即可,访问的地址为 <a href="http://localhost/index.html" target="_blank" rel="noopener">http://localhost/index.html</a><br>  3)启动nginx.exe</p>
+<h5 id="5-配置axios-default-baseURL"><a href="#5-配置axios-default-baseURL" class="headerlink" title="5.配置axios.default.baseURL"></a>5.配置axios.default.baseURL</h5><p>除此之外，我还知道当项目打包成apk之后就不存在跨域问题了，所以如果项目要打包成apk，我们需要在项目中的所有请求中写全路径(此时我们可以配置axios.default.baseURL来解决)</p>
+<h5 id="6-iframe-嵌套通讯，postmessage"><a href="#6-iframe-嵌套通讯，postmessage" class="headerlink" title="6.iframe 嵌套通讯，postmessage"></a>6.iframe 嵌套通讯，postmessage</h5><p>postMessage 是 HTML5 XMLHttpRequest Level 2 中的 API，且是为数不多可以跨域操作的 window 属性之一，它可用于解决以下方面的问题：</p>
+<ul>
+<li><p>页面和其打开的新窗口的数据传递</p>
+</li>
+<li><p>多窗口之间消息传递</p>
+</li>
+<li><p>页面与嵌套的 iframe 消息传递</p>
+</li>
+<li><p>上面三个场景的跨域数据传递</p>
+<p><strong>postMessage()方法允许来自不同源的脚本采用异步方式进行有限的通信，可以实现跨文本档、多窗口、跨域消息传递</strong>。</p>
+<blockquote>
+<p>otherWindow.postMessage(message, targetOrigin, [transfer]);</p>
+</blockquote>
+<ul>
+<li><p>message: 将要发送到其他 window 的数据。</p>
+</li>
+<li><p>targetOrigin：通过窗口的  origin 属性来指定哪些窗口能接收到消息事件，其值可以是字符串”*”（表示无限制）或者一个  URI。在发送消息的时候，如果目标窗口的协议、主机地址或端口这三者的任意一项不匹配 targetOrigin  提供的值，那么消息就不会被发送；只有三者完全匹配，消息才会被发送。</p>
+</li>
+<li><p>transfer(可选)：是一串和 message 同时传递的 Transferable 对象. 这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。</p>
+<p>接下来我们看个例子： <code>http://localhost:3000/a.html</code>页面向</p>
+<p><code>http://localhost:4000/b.html</code>传递“我爱你”,然后后者传回”我不爱你”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.html</span></span><br><span class="line">  &lt;iframe src=<span class="string">"http://localhost:4000/b.html"</span> frameborder=<span class="string">"0"</span> id=<span class="string">"frame"</span> onload=<span class="string">"load()"</span>&gt;&lt;<span class="regexp">/iframe&gt; /</span><span class="regexp">/等它加载完触发一个事件</span></span><br><span class="line"><span class="regexp">  /</span><span class="regexp">/内嵌在http:/</span><span class="regexp">/localhost:3000/</span>a.html</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">load</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">let</span> frame = <span class="built_in">document</span>.getElementById(<span class="string">'frame'</span>)</span><br><span class="line">        frame.contentWindow.postMessage(<span class="string">'我爱你'</span>, <span class="string">'http://localhost:4000'</span>) <span class="comment">//发送数据</span></span><br><span class="line">        <span class="built_in">window</span>.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; <span class="comment">//接受返回数据</span></span><br><span class="line">          <span class="built_in">console</span>.log(e.data) <span class="comment">//我不爱你</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ b.html</span></span><br><span class="line"><span class="regexp">  window.onmessage = function(e) &#123;</span></span><br><span class="line"><span class="regexp">    console.log(e.data) /</span><span class="regexp">/我爱你</span></span><br><span class="line"><span class="regexp">    e.source.postMessage('我不爱你', e.origin)</span></span><br><span class="line"><span class="regexp"> &#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<p>参考资料:<br>  浏览器同源策略及跨域的解决方法: <a href="https://www.cnblogs.com/laixiangran/p/9064769.html" target="_blank" rel="noopener">https://www.cnblogs.com/laixi…</a><br>  MDN上的同源策略: <a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="noopener">https://developer.mozilla.org…</a><br>  MDN上的CORS: <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">https://developer.mozilla.org…</a></p>
 
       
 
@@ -256,7 +266,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">生命周期执行顺序，生命周期函数使用场景，React v16.3之后的生命周期</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">跨域问题</a>
         		</li>
       		
 		</ul>
@@ -312,7 +322,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,15 +336,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/18/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          关于async/await的串行和并行问题
+          Hello World
         
       </div>
     </a>
   
+  
+    <a href="/2019/10/25/CSS%E9%80%89%E6%8B%A9%E7%AC%A6%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%93%AA%E4%BA%9B%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E7%BB%A7%E6%89%BF%EF%BC%9F%E4%BC%98%E5%85%88%E7%BA%A7%E7%AE%97%E6%B3%95%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%EF%BC%9F%E5%86%85%E8%81%94%E5%92%8Cimportant%E5%93%AA%E4%B8%AA%E4%BC%98%E5%85%88%E7%BA%A7%E9%AB%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

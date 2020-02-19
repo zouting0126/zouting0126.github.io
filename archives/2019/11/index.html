@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zouting0126.github.io">
-  <title>关于对React生命周期函数的理解 | Hexo</title>
+  <title>Archives: 2019/11 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="顾名思义：组件的生命周期函数就是贯穿一个组件从出生（挂载）到死亡（卸载）这段时间中 特殊时间点所会触发的函数 一、生命周期执行顺序（1）、挂载　　componentWillMount() ——&gt; render() ——&gt; componentDidMount() （2）、更新　　1、props更新，父级组件重新渲染">
-<meta property="og:type" content="article">
-<meta property="og:title" content="关于对React生命周期函数的理解">
-<meta property="og:url" content="https://zouting0126.github.io/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://zouting0126.github.io/archives/2019/11/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="顾名思义：组件的生命周期函数就是贯穿一个组件从出生（挂载）到死亡（卸载）这段时间中 特殊时间点所会触发的函数 一、生命周期执行顺序（1）、挂载　　componentWillMount() ——&gt; render() ——&gt; componentDidMount() （2）、更新　　1、props更新，父级组件重新渲染">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-08-18T06:12:13.000Z">
-<meta property="article:modified_time" content="2020-02-18T07:21:57.623Z">
 <meta property="article:author" content="淡如夕影">
-<meta property="article:tag" content="生命周期执行顺序，生命周期函数使用场景，React v16.3之后的生命周期">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -155,217 +150,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-我个人博客的第一篇博客" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      关于对React生命周期函数的理解
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-11-02T06:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">什么是跨域？跨域解决方法</a>
     </h1>
   
 
-        
-        <a href="/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2019-08-18T06:12:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>顾名思义：组件的生命周期函数就是贯穿一个组件从出生（挂载）到死亡（卸载）这段时间中 特殊时间点所会触发的函数</p>
-<h4 id="一、生命周期执行顺序"><a href="#一、生命周期执行顺序" class="headerlink" title="一、生命周期执行顺序"></a><strong>一、生命周期执行顺序</strong></h4><h5 id="（1）、挂载"><a href="#（1）、挂载" class="headerlink" title="（1）、挂载"></a>（1）、挂载</h5><p>　　componentWillMount() ——&gt; render() ——&gt; componentDidMount()</p>
-<h5 id="（2）、更新"><a href="#（2）、更新" class="headerlink" title="（2）、更新"></a>（2）、更新</h5><p>　　1、props更新，父级组件重新渲染</p>
-<a id="more"></a>
-
-<p>　　componentWillReceiveProps(nextProps) ——&gt; shouldComponentUpdata(nextProps, nextState) 或</p>
-<p>　　componentWillReceiveProps(nextProps) ——&gt;  shouldComponentUpdata(nextProps, nextState) ——&gt;  componentWillUpdate(nextProps, nextState) ——&gt; render() ——&gt;  componentDidUpdate(prevProps, prevState)</p>
-<p>　　2、state更新，自身状态发生改变</p>
-<p>　　shouldComponentUpdate(nextProps, nextState) 或</p>
-<p>　　shouldComponentUpdate(nextProps, nextState) ——&gt;  componentWillUpdate(nextProps, nextState) ——&gt; render() ——&gt;  componentDidUpdate()</p>
-<h5 id="（3）、卸载"><a href="#（3）、卸载" class="headerlink" title="（3）、卸载"></a>（3）、卸载</h5><p>　　componentWillUnmount()</p>
-<h4 id="二、生命周期函数使用场景"><a href="#二、生命周期函数使用场景" class="headerlink" title="二、生命周期函数使用场景"></a><strong>二、生命周期函数使用场景</strong></h4><h5 id="（1）componentWillMount"><a href="#（1）componentWillMount" class="headerlink" title="（1）componentWillMount()"></a>（1）componentWillMount()</h5><p>　　组件挂载阶段，render执行前执行。可以根据props进行setState，render会感知到更新后的state，仅会执行一次，不会触发重新渲染。</p>
-<p>　　这里不建议发送AJAX请求，由于请求是异步的，在接下来的第一次render中，一定获取不到响应数据。</p>
-<h5 id="2-render"><a href="#2-render" class="headerlink" title="(2) render()"></a>(2) render()</h5><p>　　该方法创建一个虚拟dom，表示组件的输出。（输出可以应用到react-dom，react-native）</p>
-<h5 id="（3）componentDidMount"><a href="#（3）componentDidMount" class="headerlink" title="（3）componentDidMount()"></a>（3）componentDidMount()</h5><p>　　组件挂载完毕，已经生成真实DOM。</p>
-<p>　　可以对DOM节点进行操作，设置定时器，发送AJAX请求</p>
-<h5 id="4-componentWillReceiveProps-nextProps"><a href="#4-componentWillReceiveProps-nextProps" class="headerlink" title="(4)  componentWillReceiveProps(nextProps)"></a>(4)  componentWillReceiveProps(nextProps)</h5><p>　　已挂载组件在接收到新的props时会触发，这里的新的props有点歧义，可以理解为只要父组件重新渲染，子组件就会接收到新的props，从而触发这个方法。</p>
-<p>　　当props发生变化，组件自身状态需要做出改变，即state做出对应响应时，可以在此方法中执行；</p>
-<p>　（5）shouldComponentUpdate(nextProps, nextState)</p>
-<p>　　接收到新的props或state，判断是否需要发生重新渲染，默认返回true，表示重新渲染</p>
-<p>　　该方法在首次渲染或者forceUpdate时不会触发</p>
-<h5 id="（6）componentWillUpdate-nextProps-nextState"><a href="#（6）componentWillUpdate-nextProps-nextState" class="headerlink" title="（6）componentWillUpdate(nextProps, nextState)"></a>（6）componentWillUpdate(nextProps, nextState)</h5><p>　　该方法中禁止调用this.setState()方法</p>
-<p>　　使用该方法做一些更新之前的准备工作</p>
-<h5 id="（7）componentDidUpdate-prevProps-prevState"><a href="#（7）componentDidUpdate-prevProps-prevState" class="headerlink" title="（7）componentDidUpdate(prevProps, prevState)"></a>（7）componentDidUpdate(prevProps, prevState)</h5><p>　　 在组件的更新已经同步到dom上立即调用，可以操作更新之后的dom</p>
-<h5 id="（8）componentWillUnmount"><a href="#（8）componentWillUnmount" class="headerlink" title="（8）componentWillUnmount()"></a>（8）componentWillUnmount()</h5><p>　　在组件卸载之前调用，一般进行清除定时器，取消请求或清除在componentDidMount中创建的DOM元素等操作</p>
-<h4 id="三、React-v16-3之后的生命周期"><a href="#三、React-v16-3之后的生命周期" class="headerlink" title="三、React v16.3之后的生命周期"></a>三、React v16.3之后的生命周期</h4><p>　　首先说一下React同步更新导致的性能问题：</p>
-<p>　　组件更新需要耗费时间，当存在多重组件嵌套时，最顶部的父级组件更新导致下级的组件也要更新时，会占据大量的时间。浏览器的GPU在这段时间内只能进行更新工作，没办法做其他的事情，此时用户也无法与其进行交互，造成浏览器卡顿的现象。</p>
-<p>　　解决方案：分片更新</p>
-<p>　　React Fiber将更新过程碎片化，每执行一段更新过程，就把控制权交换给React负责任务协调的模块，看看是否有其他更紧急的任务要做，如果没有就继续更新，如果有紧急任务，就执行紧急任务，执行完毕之后从头开始进行更新任务。</p>
-<p>　　更新过程：以render为界分为两个阶段,Reconciliation Phase（调和） 和 Commit Phase（重构）</p>
-<p>　　第一个过程会找出需要更新哪些DOM，该过程可以被打断；</p>
-<p>　　第二个阶段会把需要更新的DOM进行更新操作，不可打断</p>
-<p>　　第一阶段可能会执行以下生命周期函数:componentWillMount、componentWillReceiveProps、shouldComponentUpdate、componentWillUpdate</p>
-<p>　　第二个阶段：componentDidMount、componentDidUpdate、componentWillUnmount</p>
-<p>　　第一阶段的生命周期函数在16.3由于采用分片更新可能会出现调用多次的情况,故废弃了componentWillReceiveProps、componentWillMount、componentWillUpdate，用getDerivedStateFromProps替代，目的在于强制开发者在render之前只做无副作用的操作。而且所作的操作也仅限于根据nextProps和nextState设置state。</p>
-<p>　　getDerivedStateFromProps(nextProps, nextState)是一个静态函数，内部不能访问this。根据nextProps和nextState计算出预期的状态改变，返回结果会被送给setState</p>
-<p>　　getSnapshotBeforeUpdate() 在render之后，componentDidUpdate之前执行</p>
-<p>故16.3之后的挂载、更新和卸载执行顺序为：</p>
-<p>挂载：getDerivedStateFromProps(nextProps, nextState) ——&gt; render() ——&gt; componentDidMount()</p>
-<p>更新：</p>
-<p>　　props更新：getDerivedStateFromProps(nextProps, nextState) ——&gt;  shouldComponentUpdate(nextProps, nextState)——&gt; render——&gt;  getSnapshotBeforeUpdate(prevProps, prevState)——&gt;  componentDidUpdate(prevProps, prevState, snapShot);</p>
-<p>　　state更新：shouldComponentUpdate(nextProps, nextState)——&gt;  render——&gt; getSnapshotBeforeUpdate(prevProps, prevState)——&gt;  componentDidUpdate(prevProps, prevState, snapShot);</p>
-<p>卸载： componentWillUnmount()</p>
-<p>引用：<a href="https://moeover.com/2017/01/17/understand-react-lifecycle.html" target="_blank" rel="noopener">https://moeover.com/2017/01/17/understand-react-lifecycle.html</a></p>
-<p>　　　<a href="https://wiki.jikexueyuan.com/project/react/component-specs-lifecycle.html" target="_blank" rel="noopener">https://wiki.jikexueyuan.com/project/react/component-specs-lifecycle.html</a></p>
-<p>　　　<a href="https://zhuanlan.zhihu.com/p/38030418" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38030418</a></p>
-<p>　　　<a href="https://zhuanlan.zhihu.com/p/26027085" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26027085</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">生命周期执行顺序，生命周期函数使用场景，React v16.3之后的生命周期</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">跨域问题</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2019/08/18/%E6%88%91%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          关于async/await的串行和并行问题
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -388,8 +226,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
