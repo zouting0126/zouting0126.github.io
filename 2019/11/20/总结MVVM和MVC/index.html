@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zouting0126.github.io">
-  <title>html5新特性 | Hexo</title>
+  <title>MVVM模式的优点以及与MVC的区别 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="html5新特性：123456用于绘画canvas元素用于媒介回访的video  和 audio 元素本地离线存储localStrorage 长期存储数据，浏览器关闭后的数据不丢失；sessionStorage在页面关闭之后自动删除语义化更好的内容元素，article，footer,header,nav,section表单控件，calender,date,time,email,url,search">
+  <meta name="description" content="一、MVVM模式介绍及其的优缺点(1).什么是MVVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html5新特性">
-<meta property="og:url" content="https://zouting0126.github.io/2019/09/15/html5%E6%96%B0%E7%89%B9%E6%80%A7/index.html">
+<meta property="og:title" content="MVVM模式的优点以及与MVC的区别">
+<meta property="og:url" content="https://zouting0126.github.io/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="html5新特性：123456用于绘画canvas元素用于媒介回访的video  和 audio 元素本地离线存储localStrorage 长期存储数据，浏览器关闭后的数据不丢失；sessionStorage在页面关闭之后自动删除语义化更好的内容元素，article，footer,header,nav,section表单控件，calender,date,time,email,url,search">
+<meta property="og:description" content="一、MVVM模式介绍及其的优缺点(1).什么是MVVM">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-09-15T06:05:20.000Z">
-<meta property="article:modified_time" content="2020-02-19T08:40:54.898Z">
+<meta property="og:image" content="https://zouting0126.github.io/.io//%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC%5C01.png">
+<meta property="og:image" content="https://zouting0126.github.io/.io//02.png">
+<meta property="og:image" content="https://zouting0126.github.io/.io//03.png">
+<meta property="article:published_time" content="2019-11-20T14:10:45.000Z">
+<meta property="article:modified_time" content="2020-02-19T16:46:39.449Z">
 <meta property="article:author" content="淡如夕影">
-<meta property="article:tag" content="html5新特性">
+<meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zouting0126.github.io/.io//%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC%5C01.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -155,36 +159,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-html5新特性" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-总结MVVM和MVC" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      html5新特性
+      MVVM模式的优点以及与MVC的区别
     </h1>
   
 
         
-        <a href="/2019/09/15/html5%E6%96%B0%E7%89%B9%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2019-09-15T06:05:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-15</time>
+        <a href="/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/" class="archive-article-date">
+  	<time datetime="2019-11-20T14:10:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="html5新特性："><a href="#html5新特性：" class="headerlink" title="html5新特性："></a>html5新特性：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用于绘画canvas元素</span><br><span class="line">用于媒介回访的video  和 audio 元素</span><br><span class="line">本地离线存储localStrorage 长期存储数据，浏览器关闭后的数据不丢失；sessionStorage在页面关闭之后自动删除</span><br><span class="line">语义化更好的内容元素，article，footer,header,nav,section</span><br><span class="line">表单控件，calender,date,time,email,url,search</span><br><span class="line">H5的新增接口：地理定位接口、网络访问的接口、读文件的接口、拖拽接口</span><br></pre></td></tr></table></figure>
+        <h4 id="一、MVVM模式介绍及其的优缺点"><a href="#一、MVVM模式介绍及其的优缺点" class="headerlink" title="一、MVVM模式介绍及其的优缺点"></a>一、MVVM模式介绍及其的优缺点</h4><h5 id="1-什么是MVVM"><a href="#1-什么是MVVM" class="headerlink" title="(1).什么是MVVM"></a><strong>(1).什么是MVVM</strong></h5><a id="more"></a>
 
-<a id="more"></a>
+<p><strong>MVVM：是Model-View-ViewModel的简写</strong></p>
+<p><img src="/.io//%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC%5C01.png" alt="img"></p>
+<p>M：对应于MVC的M</p>
+<p>V：对应于MVC的V</p>
+<p>VM：ViewModel，是把MVC里的controller的数据加载，加工功能分离出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责显示，两者做到了最大限度的分离，把Model和View关联起来的就是ViewModel。</span><br><span class="line"></span><br><span class="line">ViewModel负责把Model的数据同步到View显示出来，还负责把View的修改同步回Model</span><br><span class="line"></span><br><span class="line">View 和 Model 之间的同步工作完全是自动的，无需人为干涉（由viewModel完成）</span><br><span class="line"></span><br><span class="line">因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</span><br><span class="line"></span><br><span class="line">目前著名的MVVM框架有VUE，avalon，angular等</span><br></pre></td></tr></table></figure>
 
-<h5 id="移除的标签："><a href="#移除的标签：" class="headerlink" title="移除的标签："></a>移除的标签：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;basefont&gt; 默认字体，不设置字体，以此渲染</span><br><span class="line">&lt;font&gt; 字体标签</span><br><span class="line">&lt;center&gt; 水平居中</span><br><span class="line">&lt;u&gt; 下划线</span><br><span class="line">&lt;big&gt; 大字体</span><br><span class="line">&lt;strike&gt; 中横线</span><br><span class="line">&lt;tt&gt; 文本等宽</span><br><span class="line">&lt;font&gt; 字体标签</span><br><span class="line">&lt;s&gt; 删除线标签</span><br></pre></td></tr></table></figure>
+<h5 id="2-MVVM模式的优点："><a href="#2-MVVM模式的优点：" class="headerlink" title="(2)MVVM模式的优点："></a><strong>(2)MVVM模式的优点：</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、低耦合：MVVM模式中，数据是独立于UI的，ViewModel只负责处理和提供数据，UI想怎么处理数据都由UI自己决定，ViewModel不涉及任何和UI相关的事，即使控件改变（input换成p）,ViewModel几乎不需要更改任何代码，专注自己的数据处理就可以了</span><br><span class="line"></span><br><span class="line">2.自动同步数据:ViewModel通过双向数据绑定把View层和Model层连接了起来，View和Model这两者可以自动同步。程序员不需要手动操作DOM, 不需要关注数据状态的同步问题，MVVM 统一管理了复杂的数据状态维护</span><br><span class="line"></span><br><span class="line">3、可重用性：你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。</span><br><span class="line"></span><br><span class="line">4、独立开发：开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。</span><br><span class="line"></span><br><span class="line">5、可测试：ViewModel里面是数据和业务逻辑，View中关注的是UI，这样的做测试是很方便的，完全没有彼此的依赖，不管是UI的单元测试还是业务逻辑的单元测试，都是低耦合的</span><br></pre></td></tr></table></figure>
 
-<h5 id="新标签的兼容问题："><a href="#新标签的兼容问题：" class="headerlink" title="新标签的兼容问题："></a>新标签的兼容问题：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;方法一：</span><br><span class="line">&#x2F;&#x2F;1、使用静态资源的html5shi包</span><br><span class="line">&lt;!--[if lt IE9]&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;http:&#x2F;&#x2F;cdn.static.runoob.com&#x2F;libs&#x2F;html5shiv&#x2F;3.7&#x2F;html5shiv.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2、载入之后，初始化新标签的css(解决IE8及以下浏览器下h5新增标签不是块级元素的问题)</span><br><span class="line">header, section, footer, aside, nav, main, article, figure &#123; display: block; &#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;方法二</span><br><span class="line">IE6&#x2F;IE7&#x2F;IE8支持通过document方法产生的标签，利用这一特性让这些浏览器支持HTML5新标签</span><br></pre></td></tr></table></figure>
+<h5 id="3-MVVM设计模式的缺点"><a href="#3-MVVM设计模式的缺点" class="headerlink" title="(3)MVVM设计模式的缺点"></a><strong>(3)MVVM设计模式的缺点</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.  数据绑定也使得bug很难被调试。比如你看到页面异常了，有可能是你的View的代码有bug，也可能是你的model的代码有问题。数据绑定使得一个位置的Bug被快速传递到别的位置，要定位原始出问题的地方就变得不那么容易了。</span><br><span class="line"></span><br><span class="line">2.  数据双向绑定不利于代码重用。客户端开发最常用的是View，但是数据双向绑定技术，让你在一个View都绑定了一个model，不同的模块model都不同。那就不能简单重用view了</span><br><span class="line"></span><br><span class="line">3.  一个大的模块中model也会很大，虽然使用方便了也很容易保证数据的一致性，但是长期持有，不释放内存就造成花费更多的内存。</span><br></pre></td></tr></table></figure>
 
-<h5 id="区分html5-于html"><a href="#区分html5-于html" class="headerlink" title="区分html5 于html:"></a>区分html5 于html:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、在文档类型声明上区别</span><br><span class="line">   HTML声明：</span><br><span class="line">  &lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN&quot; &quot;&lt;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1-transitional.dtd&gt;&quot;&gt;</span><br><span class="line">　　&lt;html xmlns&#x3D;&quot;&lt;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&gt;&quot;&gt;</span><br><span class="line">　　</span><br><span class="line">　HTML5声明：&lt;!doctype html&gt;</span><br><span class="line"></span><br><span class="line">2、在结构语义上区分</span><br><span class="line">	HTML：&lt;div id&#x3D;&quot;header&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">	HTML5：在语义上却有很大的优势，提供了一些新的HTML5标签比如: article、footer、header、nav、section，这些通俗易懂</span><br></pre></td></tr></table></figure>
+<h4 id="二、MVC模式介绍"><a href="#二、MVC模式介绍" class="headerlink" title="二、MVC模式介绍"></a>二、MVC模式介绍</h4><h5 id="（1）什么是MVC"><a href="#（1）什么是MVC" class="headerlink" title="（1）什么是MVC"></a>（1）什么是MVC</h5><p>MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">几乎所有的App都只干这么一件事：将数据展示给用户看，并处理用户对界面的操作。</span><br><span class="line">MVC的思想：一句话描述就是Controller负责将Model的数据用View显示出来，换句话说就是在Controller里面把Model的数据赋值给View。</span><br></pre></td></tr></table></figure>
 
+<p><strong>M</strong>：<strong>Model</strong></p>
+<p><strong>Model</strong>（模型）：是应用程序中用于处理应用程序数据逻辑的部分。通常模型对象负责在数据库中存取数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">比如我们人类有一双手，一双眼睛，一个脑袋，没有尾巴，这就是模型，Model定义了这个模块的数据模型。</span><br><span class="line">在代码中体现为数据管理者，Model负责对数据进行获取及存放。</span><br><span class="line">数据不可能凭空生成的，要么是从服务器上面获取到的数据，要么是本地数据库中的数据，</span><br><span class="line">也有可能是用户在UI上填写的表单即将上传到服务器上面存放，所以需要有数据来源。</span><br><span class="line">既然Model是数据管理者，则自然由它来负责获取数据。</span><br><span class="line">Controller不需要关心Model是如何拿到数据的，只管调用就行了。</span><br><span class="line">数据存放的地方是在Model，而使用数据的地方是在Controller，</span><br><span class="line">所以Model应该提供接口供controller访问其存放的数据（通常通过.h里面的只读属性）</span><br></pre></td></tr></table></figure>
+
+<p><strong>V</strong>: <strong>View</strong></p>
+<p><strong>View</strong>（视图）：是应用程序中处理数据显示的部分。通常视图是依据模型数据创建的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">View，视图，简单来说，就是我们在界面上看见的一切。</span><br><span class="line">它们有一部分是我们UI定死的，也就是不会根据数据来更新显示的，比如一些Logo图片啊，这里有个按钮啊，那里有个输入框啊，一些显示特定内容label啊等等；有一部分是会根据数据来显示内容的，比如tableView来显示好友列表啊，这个tableView的显示内容肯定是根据数据来显示的。我们使用MVC解决问题的时候，通常是解决这些根据数据来显示内容的视图。</span><br></pre></td></tr></table></figure>
+
+<p><strong>C: Controller</strong></p>
+<p><strong>Controller</strong>（控制器）：是应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</p>
+<pre><code>Controller是MVC中的数据和视图的协调者，也就是在Controller里面把Model的数据赋值给View来显示（或者是View接收用户输入的数据然后由Controller把这些数据传给Model来保存到本地或者上传到服务器）。</code></pre><p>下面看这张图</p>
+<p>斯坦福大学公开课上的这幅图来说明，这可以说是最经典和最规范的MVC标准</p>
+<p><img src="/.io//02.png" alt="img"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这张图把MVC分为三个独立的区域，并且中间用了一些线来隔开。很有意思的设计，因为这些线似乎出现在了驾校科目一的内容中，你瞧C和V以及C和M之间的白线，一部分是虚线一部分是实线对吧，这就表明了引用关系：C可以直接引用V和M，而V和M不能直接引用C，至少你不能显式的在V和M的代码中去写和C相关的任何代码，而V和M之间则是双黄线，没错，它们俩谁也不能引用谁，你既不能在M里面写V，也不能在V里面写M。哦，上面的描述有点小小的问题，你不是“不能”这样写，而是“不应该”这样写，没人能阻止你在写代码的时候在一个M里面去写V，但是一旦你这样做了，那么你就违背了MVC的规范，你就不是在使用MVC了，所以这算是MVC的一个必要条件：使用MVC –&gt; M里面没有V的代码。所以M里面没有V的代码就是使用MVC的必要条件。</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="三、MVVM-和-MVC-的区别："><a href="#三、MVVM-和-MVC-的区别：" class="headerlink" title="三、MVVM 和 MVC 的区别："></a>三、MVVM 和 MVC 的区别：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mvc 和 mvvm 其实区别并不大。都是一种设计思想，主要区别如下：</span><br><span class="line">1.mvc 中 Controller演变成 mvvm 中的 viewModel</span><br><span class="line">2.mvvm 通过数据来驱动视图层的显示而不是节点操作。</span><br><span class="line">3.mvc中Model和View是可以直接打交道的，造成Model层和View层之间的耦合度高。而mvvm中Model和View不直接交互，而是通过中间桥梁ViewModel来同步</span><br><span class="line">4.mvvm主要解决了:mvc中大量的DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。</span><br></pre></td></tr></table></figure>
+
+<h4 id="四、最后贴图帮助理解"><a href="#四、最后贴图帮助理解" class="headerlink" title="四、最后贴图帮助理解"></a>四、最后贴图帮助理解</h4><p><img src="/.io//03.png" alt="img"></p>
 
       
 
@@ -219,7 +249,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">html5新特性</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -275,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2019/09/15/html5%E6%96%B0%E7%89%B9%E6%80%A7/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +319,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/09/22/%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/18/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          清除浮动的几种方式
+          Hello World
         
       </div>
     </a>
   
   
-    <a href="/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于async/await的串行和并行问题</div>
+    <a href="/2019/11/02/%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F%EF%BC%9F%E8%B7%A8%E5%9F%9F%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">什么是跨域？跨域解决方法</div>
       <i class="icon-circle-right"></i>
     </a>
   
