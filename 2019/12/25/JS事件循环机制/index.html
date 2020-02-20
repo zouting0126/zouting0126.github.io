@@ -6,17 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://zouting0126.github.io">
-  <title>关于前端模块化你知道多少？ | Hexo</title>
+  <title>JS事件循环机制 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="关于前端模块化你知道多少？">
-<meta property="og:url" content="https://zouting0126.github.io/2020/02/19/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E4%BD%A0%E7%9F%A5%E9%81%93%E5%A4%9A%E5%B0%91%EF%BC%9F/index.html">
+  <meta name="description" content="前言1众所周知，为了与浏览器进行交互，Javascript是一门非阻塞单线程脚本语言。   为何单线程？  因为如果在DOM操作中，有两个线程一个添加节点，一个删除节点，浏览器并不知道以哪个为准，所以只能选择一个主线程来执行代码，以防止冲突。虽然如今添加了webworker等新技术，但其依然只是主线程的子线程，并不能执行诸如I&#x2F;O类的操作。长期来看，JS将一直是单线程。  为何非阻塞？因为单线程意">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS事件循环机制">
+<meta property="og:url" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言1众所周知，为了与浏览器进行交互，Javascript是一门非阻塞单线程脚本语言。   为何单线程？  因为如果在DOM操作中，有两个线程一个添加节点，一个删除节点，浏览器并不知道以哪个为准，所以只能选择一个主线程来执行代码，以防止冲突。虽然如今添加了webworker等新技术，但其依然只是主线程的子线程，并不能执行诸如I&#x2F;O类的操作。长期来看，JS将一直是单线程。  为何非阻塞？因为单线程意">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-19T09:08:38.000Z">
-<meta property="article:modified_time" content="2020-02-19T09:08:38.133Z">
+<meta property="og:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan01.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan02.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan03.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan04.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan05.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan06.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan07.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan08.png">
+<meta property="article:published_time" content="2019-12-25T12:54:14.000Z">
+<meta property="article:modified_time" content="2020-02-20T15:37:55.818Z">
 <meta property="article:author" content="淡如夕影">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan01.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -152,27 +164,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-关于前端模块化你知道多少？" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JS事件循环机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于前端模块化你知道多少？
+      JS事件循环机制
     </h1>
   
 
         
-        <a href="/2020/02/19/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E4%BD%A0%E7%9F%A5%E9%81%93%E5%A4%9A%E5%B0%91%EF%BC%9F/" class="archive-article-date">
-  	<time datetime="2020-02-19T09:08:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
+        <a href="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2019-12-25T12:54:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">众所周知，为了与浏览器进行交互，Javascript是一门非阻塞单线程脚本语言。</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>为何单线程？  因为如果在DOM操作中，有两个线程一个添加节点，一个删除节点，浏览器并不知道以哪个为准，所以只能选择一个主线程来执行代码，以防止冲突。虽然如今添加了webworker等新技术，但其依然只是主线程的子线程，并不能执行诸如I/O类的操作。长期来看，JS将一直是单线程。</p>
+</li>
+<li><p>为何非阻塞？因为单线程意味着任务需要排队，任务按顺序执行，如果一个任务很耗时，下一个任务不得不等待。所以为了避免这种阻塞，我们需要一种非阻塞机制。这种非阻塞机制是一种异步机制，即需要等待的任务不会阻塞主执行栈中同步任务的执行。这种机制是如下运行的：</p>
+<ul>
+<li>所有同步任务都在主线程上执行，形成一个<code>执行栈（execution context stack）</code></li>
+<li>等待任务的回调结果进入一种<code>任务队列(task queue)</code>。</li>
+<li>当主执行栈中的同步任务执行完毕后才会读取<code>任务队列</code>，任务队列中的异步任务（即之前等待任务的回调结果）会塞入主执行栈，</li>
+<li>异步任务执行完毕后会再次进入下一个循环。此即为今天文章的主角<code>事件循环(Event Loop)</code></li>
+</ul>
+<p>用一张图展示这个过程：</p>
+<p>![](js 事件循环导向图.jpg)</p>
+</li>
+</ol>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h3 id="一、任务队列"><a href="#一、任务队列" class="headerlink" title="一、任务队列"></a>一、任务队列</h3><h4 id="1-macro-task与micro-task"><a href="#1-macro-task与micro-task" class="headerlink" title="1.macro task与micro task"></a>1.macro task与micro task</h4><p>在实际情况中，上述的<code>任务队列(task queue)</code>中的异步任务分为两种：<code>微任务（micro task)</code>和<code>宏任务（macro task)</code>。</p>
+<h5 id="1-1-macro-task"><a href="#1-1-macro-task" class="headerlink" title="1.1 macro-task:"></a>1.1 macro-task:</h5><p>script(整体代码), setTimeout, setInterval, setImmediate, I/O, UI rendering。<br></p>
+<h5 id="1-2-micro-task"><a href="#1-2-micro-task" class="headerlink" title="1.2 micro-task:"></a>1.2 micro-task:</h5><p>process.nextTick, Promise, Object.observe(已废弃), MutationObserver(html5新特性)。process.nextTick会先于Promise.then执行。</p>
+<p>来自不同任务源的任务会进入到不同的任务队列。其中setTimeout与setInterval是同源的。</p>
+<h5 id="1-3-microtask和macotask执行规则："><a href="#1-3-microtask和macotask执行规则：" class="headerlink" title="1.3 microtask和macotask执行规则："></a>1.3 microtask和macotask执行规则：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">事件循环的顺序，决定了JavaScript代码的执行顺序。它从script(整体代码)开始第一次循环。之后全局上下文进入函数调用栈。直到调用栈清空(只剩全局)，然后执行所有的micro-task。当所有可执行的micro-task执行完毕之后。循环再次从macro-task开始，找到其中一个任务队列执行完毕，然后再执行所有的micro-task，这样一直循环下去</span><br></pre></td></tr></table></figure>
+
+<p>下面来个简单例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">console.log(1);</span><br><span class="line"></span><br><span class="line">setTimeout(function() &#123;</span><br><span class="line">  console.log(2);</span><br><span class="line">&#125;, 0);</span><br><span class="line"></span><br><span class="line">new Promise(function(resolve,reject)&#123;</span><br><span class="line">    console.log(3)</span><br><span class="line">    resolve()</span><br><span class="line">&#125;).then(function() &#123;</span><br><span class="line">  console.log(4);</span><br><span class="line">&#125;).then(function() &#123;</span><br><span class="line">  console.log(5);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">console.log(6);</span><br></pre></td></tr></table></figure>
+
+<p>一步一步分析如下：</p>
+<ul>
+<li>1.同步代码作为第一个macrotask,按顺序输出：1 3 6</li>
+<li>2.microtask按顺序执行：4 5</li>
+<li>3.microtask清空后执行下一个macrotask：2</li>
+</ul>
+<p>再来一个复杂的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Let&#39;s get hold of those elements</span><br><span class="line">var outer &#x3D; document.querySelector(&#39;.outer&#39;);</span><br><span class="line">var inner &#x3D; document.querySelector(&#39;.inner&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Let&#39;s listen for attribute changes on the</span><br><span class="line">&#x2F;&#x2F; outer element</span><br><span class="line">new MutationObserver(function() &#123;</span><br><span class="line">  console.log(&#39;mutate&#39;);</span><br><span class="line">&#125;).observe(outer, &#123;</span><br><span class="line">  attributes: true</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Here&#39;s a click listener…</span><br><span class="line">function onClick() &#123;</span><br><span class="line">  console.log(&#39;click&#39;);</span><br><span class="line"></span><br><span class="line">  setTimeout(function() &#123;</span><br><span class="line">    console.log(&#39;timeout&#39;);</span><br><span class="line">  &#125;, 0);</span><br><span class="line"></span><br><span class="line">  Promise.resolve().then(function() &#123;</span><br><span class="line">    console.log(&#39;promise&#39;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  outer.setAttribute(&#39;data-random&#39;, Math.random());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; …which we&#39;ll attach to both elements</span><br><span class="line">inner.addEventListener(&#39;click&#39;, onClick);</span><br><span class="line">outer.addEventListener(&#39;click&#39;, onClick);</span><br></pre></td></tr></table></figure>
+
+<p>假设我们创建一个有里外两部分的正方形盒子，里外都绑定了点击事件，此时点击内部，代码会如何执行？一步一步分析如下：</p>
+<ul>
+<li>1.触发内部click事件，同步输出：click</li>
+<li>2.将setTimeout回调结果放入macrotask队列</li>
+<li>3.将promise回调结果放入microtask</li>
+<li>4.将Mutation observers放入microtask队列，主执行栈中onclick事件结束，主执行栈清空</li>
+<li>5.依序执行microtask队列中任务，输出：promise mutate</li>
+<li>6.注意此时事件冒泡，外部元素再次触发onclick回调，所以按照前5步再次输出：click promise mutate（我们可以注意到事件冒泡甚至会在microtask中的任务执行之后，microtask优先级非常高）</li>
+<li>7.macrotask中第一个任务执行完毕，依次执行macrotask中剩下的任务输出：timeout timeout</li>
+</ul>
+<h4 id="2-案例"><a href="#2-案例" class="headerlink" title="2.案例"></a>2.案例</h4><h5 id="2-1-案例1"><a href="#2-1-案例1" class="headerlink" title="2-1. 案例1"></a>2-1. 案例1</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; demo01  出自于上面我引用文章的一个例子，我们来根据上面的结论，一步一步分析具体的执行过程。</span><br><span class="line">&#x2F;&#x2F; 为了方便理解，我以打印出来的字符作为当前的任务名称</span><br><span class="line">setTimeout(function() &#123;</span><br><span class="line">    console.log(&#39;timeout1&#39;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">new Promise(function(resolve) &#123;</span><br><span class="line">    console.log(&#39;promise1&#39;);</span><br><span class="line">    for(var i &#x3D; 0; i &lt; 1000; i++) &#123;</span><br><span class="line">        i &#x3D;&#x3D; 99 &amp;&amp; resolve();</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&#39;promise2&#39;);</span><br><span class="line">&#125;).then(function() &#123;</span><br><span class="line">    console.log(&#39;then1&#39;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.log(&#39;global1&#39;);</span><br></pre></td></tr></table></figure>
+
+<p>首先，事件循环从宏任务队列开始，这个时候，宏任务队列中，只有一个script(整体代码)任务。每一个任务的执行顺序，都依靠函数调用栈来搞定，而当遇到任务源时，则会先分发任务到对应的队列中去，所以，上面例子的首先执行如下图所示。</p>
+<p><img src="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan01.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一步：script任务开始执行，全局上下文入栈</span><br><span class="line"></span><br><span class="line">第二步：script任务执行时首先遇到了setTimeout，setTimeout为一个宏任务源，那么他的作用就是将任务分发到它对应的队列中。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function() &#123;</span><br><span class="line">    console.log(&#39;timeout1&#39;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan02.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第三步：script执行时遇到Promise实例。Promise构造函数中的第一个参数，是在new的时候执行，因此不会进入任何其他的队列，而是直接在当前任务直接执行了，而后续的.then则会被分发到micro-task的Promise队列中去。</span><br><span class="line"></span><br><span class="line">因此，构造函数执行时，里面的参数进入函数调用栈执行。for循环不会进入任何队列，因此代码会依次执行，所以这里的promise1和promise2会依次输出。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan03.png" alt></p>
+<p><img src="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan04.png" alt></p>
+<p><img src="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan05.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">构造函数执行完毕的过程中，resolve执行完毕出栈，promise2输出，promise1页出栈，then执行时，Promise任务then1进入对应队列</span><br><span class="line"></span><br><span class="line">script任务继续往下执行，最后只有一句输出了globa1，然后，全局任务就执行完毕了。</span><br><span class="line"></span><br><span class="line">第四步：第一个宏任务script执行完毕之后，就开始执行所有的可执行的微任务。这个时候，微任务中，只有Promise队列中的一个任务then1，因此直接执行就行了，执行结果输出then1，当然，他的执行，也是进入函数调用栈中执行的。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan06.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第五步：当所有的micro-tast执行完毕之后，表示第一轮的循环就结束了。这个时候就得开始第二轮的循环。第二轮循环仍然从宏任务macro-task开始</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan07.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个时候，我们发现宏任务中，只有在setTimeout队列中还要一个timeout1的任务等待执行。因此就直接执行即可。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/xunhuan08.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个时候宏任务队列与微任务队列中都没有任务了，所以代码就不会再输出其他东西了。</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-案例2"><a href="#2-2-案例2" class="headerlink" title="2-2 . 案例2"></a>2-2 . 案例2</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;golb1&#39;);</span><br><span class="line"></span><br><span class="line">setTimeout(function() &#123;</span><br><span class="line">    console.log(&#39;timeout1&#39;);</span><br><span class="line">    new Promise(function(resolve) &#123;</span><br><span class="line">        console.log(&#39;timeout1_promise&#39;);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;).then(function() &#123;</span><br><span class="line">        console.log(&#39;timeout1_then&#39;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">new Promise(function(resolve) &#123;</span><br><span class="line">    console.log(&#39;glob1_promise&#39;);</span><br><span class="line">    resolve();</span><br><span class="line">&#125;).then(function() &#123;</span><br><span class="line">    console.log(&#39;glob1_then&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">setTimeout(function() &#123;</span><br><span class="line">    console.log(&#39;timeout2&#39;);</span><br><span class="line">    new Promise(function(resolve) &#123;</span><br><span class="line">        console.log(&#39;timeout2_promise&#39;);</span><br><span class="line">        resolve();</span><br><span class="line">    &#125;).then(function() &#123;</span><br><span class="line">        console.log(&#39;timeout2_then&#39;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">new Promise(function(resolve) &#123;</span><br><span class="line">    console.log(&#39;glob2_promise&#39;);</span><br><span class="line">    resolve();</span><br><span class="line">&#125;).then(function() &#123;</span><br><span class="line">    console.log(&#39;glob2_then&#39;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -201,6 +284,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -251,7 +345,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2020/02/19/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96%E4%BD%A0%E7%9F%A5%E9%81%93%E5%A4%9A%E5%B0%91%EF%BC%9F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://zouting0126.github.io/2019/12/25/JS%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -265,9 +359,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/02/18/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
   
-    <a href="/2020/02/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+  
+    <a href="/2019/12/20/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88%E5%8F%8A%E5%89%8D%E7%AB%AF%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于前端性能优化方案及前端兼容性问题的解决</div>
       <i class="icon-circle-right"></i>
     </a>
   
