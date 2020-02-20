@@ -15,17 +15,17 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前言 在 JavaScript 发展初期就是为了实现简单的页面交互逻辑，寥寥数语即可；如今 CPU、浏览器性能得到了极大的提升，很多页面逻辑迁移到了客户端（表单验证等），随着 web2.0 时代的到来，Ajax 技术得到广泛应用，jQuery 等前端库层出不穷，前端代码日益膨胀，此时在 JS 方面就会考虑使用模块化规范去管理。 本文内容主要有理解模块化，为什么要模块化，模块化的优缺点以及模块化规范">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://zouting0126.github.io/.io//%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83.jpg">
-<meta property="og:image" content="https://zouting0126.github.io/.io//02.jpg">
-<meta property="og:image" content="https://zouting0126.github.io/.io//03.jpg">
-<meta property="og:image" content="https://zouting0126.github.io/.io//04.jpg">
-<meta property="og:image" content="https://zouting0126.github.io/.io//05.jpg">
+<meta property="og:image" content="https://zouting0126.github.io/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83.jpg">
+<meta property="og:image" content="https://zouting0126.github.io/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/02.jpg">
+<meta property="og:image" content="https://zouting0126.github.io/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/03.jpg">
+<meta property="og:image" content="https://zouting0126.github.io/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/04.jpg">
+<meta property="og:image" content="https://zouting0126.github.io/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/05.jpg">
 <meta property="article:published_time" content="2019-09-26T01:48:59.000Z">
-<meta property="article:modified_time" content="2020-02-19T09:24:35.287Z">
+<meta property="article:modified_time" content="2020-02-20T14:51:59.541Z">
 <meta property="article:author" content="淡如夕影">
 <meta property="article:tag" content="前端模块化、模块化方案的好处">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zouting0126.github.io/.io//%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83.jpg">
+<meta name="twitter:image" content="https://zouting0126.github.io/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -186,7 +186,7 @@
 <p>本文内容主要有理解模块化，为什么要模块化，模块化的优缺点以及模块化规范, 并且介绍下开发中最流行的 CommonJS、AMD、 ES6、CMD 规范。本文试图站在小白的角度，用通俗易懂的笔调介绍这些枯燥无味的概念，希望诸君阅读后，对模块化编程有个全新的认识和理解！</p>
 <a id="more"></a>
 
-<p><img src="/.io//%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83.jpg" alt="img"></p>
+<p><img src="/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83.jpg" alt="img"></p>
 <h1 id="一、模块化的理解"><a href="#一、模块化的理解" class="headerlink" title="一、模块化的理解"></a><strong>一、模块化的理解</strong></h1><h5 id="1-什么是模块"><a href="#1-什么是模块" class="headerlink" title="1. 什么是模块?"></a><strong>1. 什么是模块?</strong></h5><ul>
 <li>将一个复杂的程序依据一定的规则 (规范) 封装成几个块 (文件)，并进行组合在一起；</li>
 <li>块的内部数据与实现是私有的， 只是向外部暴露一些接口 (方法) 与外部其它模块通信。</li>
@@ -217,7 +217,7 @@
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.js 文件</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">let</span> data = <span class="string">'www.baidu.com'</span></span><br><span class="line"> <span class="comment">// 操作数据的函数</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="comment">// 用于暴露有函数</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">`foo() <span class="subst">$&#123;data&#125;</span>`</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="comment">// 用于暴露有函数</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">`bar() <span class="subst">$&#123;data&#125;</span>`</span>)</span><br><span class="line"> otherFun() <span class="comment">// 内部调用</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">otherFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="comment">// 内部私有的函数</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'otherFun()'</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">// 暴露行为</span></span><br><span class="line"> <span class="built_in">window</span>.myModule = &#123; foo, bar &#125; <span class="comment">//ES6 写法</span></span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure>
 
 <p>最后得到的结果：</p>
-<p><img src="/.io//02.jpg" alt="img">))</p>
+<p><img src="/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/02.jpg" alt="img">))</p>
 <p>IIFE 模式增强：引入依赖。</p>
 <p>这就是现代模块实现的基石</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.js 文件</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, $</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">let</span> data = <span class="string">'www.baidu.com'</span></span><br><span class="line"> <span class="comment">// 操作数据的函数</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="comment">// 用于暴露有函数</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">`foo() <span class="subst">$&#123;data&#125;</span>`</span>)</span><br><span class="line"> $(<span class="string">'body'</span>).css(<span class="string">'background'</span>, <span class="string">'red'</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="comment">// 用于暴露有函数</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">`bar() <span class="subst">$&#123;data&#125;</span>`</span>)</span><br><span class="line"> otherFun() <span class="comment">// 内部调用</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">otherFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="comment">// 内部私有的函数</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'otherFun()'</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">// 暴露行为</span></span><br><span class="line"> <span class="built_in">window</span>.myModule = &#123; foo, bar &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>, jQuery)</span><br></pre></td></tr></table></figure>
@@ -324,7 +324,7 @@
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.html 文件</span></span><br><span class="line">&lt;div&gt;<span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Modular Demo 1: 未使用 AMD(require.js)<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;script type="text/</span>javascript<span class="string">" src="</span>js/modules/dataService.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">" src="</span>js/modules/alerter.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">" src="</span>js/main.js<span class="string">"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>最后得到如下结果：</p>
-<p><img src="/.io//03.jpg" alt="img"></p>
+<p><img src="/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/03.jpg" alt="img"></p>
 <p>这种方式缺点很明显：首先会发送多个请求，其次引入的 js 文件顺序不能搞错，否则会报错！</p>
 <p><strong>使用 require.js</strong></p>
 <p>RequireJS 是一个工具库，主要用于客户端的模块管理。它的模块管理遵守 AMD 规范，RequireJS 的基本思想是，通过 define 方法，将代码定义为模块；通过 require 方法，实现代码的模块加载。</p>
@@ -387,7 +387,7 @@
 
 <p></p>
 <p>最后得到结果如下：</p>
-<p><img src="/.io//04.jpg" alt="img"></p>
+<p><img src="/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/04.jpg" alt="img"></p>
 <h4 id="4-ES6-模块化"><a href="#4-ES6-模块化" class="headerlink" title="4. ES6 模块化"></a><strong>4. ES6 模块化</strong></h4><p>ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。</p>
 <h5 id="1-ES6-模块化语法"><a href="#1-ES6-模块化语法" class="headerlink" title="(1) ES6 模块化语法"></a><strong>(1) ES6 模块化语法</strong></h5><p>export 命令用于规定模块的对外接口，import 命令用于输入其他模块提供的功能。</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 定义模块 math.js **/</span></span><br><span class="line"><span class="keyword">var</span> basicNum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> &#123; basicNum, add &#125;;</span><br><span class="line"><span class="comment">/** 引用模块 **/</span></span><br><span class="line"><span class="keyword">import</span> &#123; basicNum, add &#125; <span class="keyword">from</span> <span class="string">'./math'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">ele</span>) </span>&#123;</span><br><span class="line"> ele.textContent = add(<span class="number">99</span> + basicNum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -442,7 +442,7 @@
   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"js/lib/bundle.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>  最后得到如下结果：</p>
-<p>  <img src="/.io//05.jpg" alt="img"></p>
+<p>  <img src="/2019/09/26/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/05.jpg" alt="img"></p>
 <p>  此外第三方库 (以 jQuery 为例) 如何引入呢？</p>
 <p>  首先安装依赖 npm install jquery@1；</p>
 <p>  然后在 app.js 文件中引入：</p>

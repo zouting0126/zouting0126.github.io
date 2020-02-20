@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="https://zouting0126.github.io">
   <title>MVVM模式的优点以及与MVC的区别 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、MVVM模式介绍及其的优缺点(1).什么是MVVM">
+  <meta name="description" content="一、MVVM模式介绍及其的优缺点(1).什么是MVVMMVVM：是Model-View-ViewModel的简写  M：对应于MVC的M V：对应于MVC的V VM：ViewModel，是把MVC里的controller的数据加载，加工功能分离出来 123456789MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MVVM模式的优点以及与MVC的区别">
 <meta property="og:url" content="https://zouting0126.github.io/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、MVVM模式介绍及其的优缺点(1).什么是MVVM">
+<meta property="og:description" content="一、MVVM模式介绍及其的优缺点(1).什么是MVVMMVVM：是Model-View-ViewModel的简写  M：对应于MVC的M V：对应于MVC的V VM：ViewModel，是把MVC里的controller的数据加载，加工功能分离出来 123456789MVVM最早由微软提出来，它借鉴了桌面应用程序的MVC思想，在前端页面中，把Model用纯JavaScript对象表示，View负责">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://zouting0126.github.io/.io//%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC%5C01.png">
-<meta property="og:image" content="https://zouting0126.github.io/.io//02.png">
-<meta property="og:image" content="https://zouting0126.github.io/.io//03.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVVM%E5%AF%BC%E5%90%91%E5%9B%BE.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVC%E5%AF%BC%E5%90%91%E5%9B%BE.png">
+<meta property="og:image" content="https://zouting0126.github.io/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVVM%E5%92%8CMVC.png">
 <meta property="article:published_time" content="2019-11-20T14:10:45.000Z">
-<meta property="article:modified_time" content="2020-02-19T16:46:39.449Z">
+<meta property="article:modified_time" content="2020-02-20T14:52:04.906Z">
 <meta property="article:author" content="淡如夕影">
 <meta property="article:tag" content="前端">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zouting0126.github.io/.io//%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC%5C01.png">
+<meta name="twitter:image" content="https://zouting0126.github.io/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVVM%E5%AF%BC%E5%90%91%E5%9B%BE.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -179,10 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="一、MVVM模式介绍及其的优缺点"><a href="#一、MVVM模式介绍及其的优缺点" class="headerlink" title="一、MVVM模式介绍及其的优缺点"></a>一、MVVM模式介绍及其的优缺点</h4><h5 id="1-什么是MVVM"><a href="#1-什么是MVVM" class="headerlink" title="(1).什么是MVVM"></a><strong>(1).什么是MVVM</strong></h5><a id="more"></a>
-
-<p><strong>MVVM：是Model-View-ViewModel的简写</strong></p>
-<p><img src="/.io//%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC%5C01.png" alt="img"></p>
+        <h4 id="一、MVVM模式介绍及其的优缺点"><a href="#一、MVVM模式介绍及其的优缺点" class="headerlink" title="一、MVVM模式介绍及其的优缺点"></a>一、MVVM模式介绍及其的优缺点</h4><h5 id="1-什么是MVVM"><a href="#1-什么是MVVM" class="headerlink" title="(1).什么是MVVM"></a><strong>(1).什么是MVVM</strong></h5><p><strong>MVVM：是Model-View-ViewModel的简写</strong></p>
+<p><img src="/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVVM%E5%AF%BC%E5%90%91%E5%9B%BE.png" alt></p>
 <p>M：对应于MVC的M</p>
 <p>V：对应于MVC的V</p>
 <p>VM：ViewModel，是把MVC里的controller的数据加载，加工功能分离出来</p>
@@ -207,14 +205,14 @@
 <p><strong>Controller</strong>（控制器）：是应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</p>
 <pre><code>Controller是MVC中的数据和视图的协调者，也就是在Controller里面把Model的数据赋值给View来显示（或者是View接收用户输入的数据然后由Controller把这些数据传给Model来保存到本地或者上传到服务器）。</code></pre><p>下面看这张图</p>
 <p>斯坦福大学公开课上的这幅图来说明，这可以说是最经典和最规范的MVC标准</p>
-<p><img src="/.io//02.png" alt="img"></p>
+<p><img src="/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVC%E5%AF%BC%E5%90%91%E5%9B%BE.png" alt="img"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这张图把MVC分为三个独立的区域，并且中间用了一些线来隔开。很有意思的设计，因为这些线似乎出现在了驾校科目一的内容中，你瞧C和V以及C和M之间的白线，一部分是虚线一部分是实线对吧，这就表明了引用关系：C可以直接引用V和M，而V和M不能直接引用C，至少你不能显式的在V和M的代码中去写和C相关的任何代码，而V和M之间则是双黄线，没错，它们俩谁也不能引用谁，你既不能在M里面写V，也不能在V里面写M。哦，上面的描述有点小小的问题，你不是“不能”这样写，而是“不应该”这样写，没人能阻止你在写代码的时候在一个M里面去写V，但是一旦你这样做了，那么你就违背了MVC的规范，你就不是在使用MVC了，所以这算是MVC的一个必要条件：使用MVC –&gt; M里面没有V的代码。所以M里面没有V的代码就是使用MVC的必要条件。</span><br></pre></td></tr></table></figure>
 
 
 
 <h4 id="三、MVVM-和-MVC-的区别："><a href="#三、MVVM-和-MVC-的区别：" class="headerlink" title="三、MVVM 和 MVC 的区别："></a>三、MVVM 和 MVC 的区别：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mvc 和 mvvm 其实区别并不大。都是一种设计思想，主要区别如下：</span><br><span class="line">1.mvc 中 Controller演变成 mvvm 中的 viewModel</span><br><span class="line">2.mvvm 通过数据来驱动视图层的显示而不是节点操作。</span><br><span class="line">3.mvc中Model和View是可以直接打交道的，造成Model层和View层之间的耦合度高。而mvvm中Model和View不直接交互，而是通过中间桥梁ViewModel来同步</span><br><span class="line">4.mvvm主要解决了:mvc中大量的DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。</span><br></pre></td></tr></table></figure>
 
-<h4 id="四、最后贴图帮助理解"><a href="#四、最后贴图帮助理解" class="headerlink" title="四、最后贴图帮助理解"></a>四、最后贴图帮助理解</h4><p><img src="/.io//03.png" alt="img"></p>
+<h4 id="四、最后贴图帮助理解"><a href="#四、最后贴图帮助理解" class="headerlink" title="四、最后贴图帮助理解"></a>四、最后贴图帮助理解</h4><p><img src="/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVVM%E5%92%8CMVC.png" alt="img"></p>
 
       
 
