@@ -214,81 +214,6 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/18/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/18/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-18T07:38:47.897Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/18/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-JS事件循环机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -573,14 +498,14 @@
 <p><strong>Controller</strong>（控制器）：是应用程序中处理用户交互的部分。通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</p>
 <pre><code>Controller是MVC中的数据和视图的协调者，也就是在Controller里面把Model的数据赋值给View来显示（或者是View接收用户输入的数据然后由Controller把这些数据传给Model来保存到本地或者上传到服务器）。</code></pre><p>下面看这张图</p>
 <p>斯坦福大学公开课上的这幅图来说明，这可以说是最经典和最规范的MVC标准</p>
-<p><img src="/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVC%E5%AF%BC%E5%90%91%E5%9B%BE.png" alt="img"></p>
+<p><img src="/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVC%E5%AF%BC%E5%90%91%E5%9B%BE.png" alt></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这张图把MVC分为三个独立的区域，并且中间用了一些线来隔开。很有意思的设计，因为这些线似乎出现在了驾校科目一的内容中，你瞧C和V以及C和M之间的白线，一部分是虚线一部分是实线对吧，这就表明了引用关系：C可以直接引用V和M，而V和M不能直接引用C，至少你不能显式的在V和M的代码中去写和C相关的任何代码，而V和M之间则是双黄线，没错，它们俩谁也不能引用谁，你既不能在M里面写V，也不能在V里面写M。哦，上面的描述有点小小的问题，你不是“不能”这样写，而是“不应该”这样写，没人能阻止你在写代码的时候在一个M里面去写V，但是一旦你这样做了，那么你就违背了MVC的规范，你就不是在使用MVC了，所以这算是MVC的一个必要条件：使用MVC –&gt; M里面没有V的代码。所以M里面没有V的代码就是使用MVC的必要条件。</span><br></pre></td></tr></table></figure>
 
 
 
 <h4 id="三、MVVM-和-MVC-的区别："><a href="#三、MVVM-和-MVC-的区别：" class="headerlink" title="三、MVVM 和 MVC 的区别："></a>三、MVVM 和 MVC 的区别：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mvc 和 mvvm 其实区别并不大。都是一种设计思想，主要区别如下：</span><br><span class="line">1.mvc 中 Controller演变成 mvvm 中的 viewModel</span><br><span class="line">2.mvvm 通过数据来驱动视图层的显示而不是节点操作。</span><br><span class="line">3.mvc中Model和View是可以直接打交道的，造成Model层和View层之间的耦合度高。而mvvm中Model和View不直接交互，而是通过中间桥梁ViewModel来同步</span><br><span class="line">4.mvvm主要解决了:mvc中大量的DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。</span><br></pre></td></tr></table></figure>
 
-<h4 id="四、最后贴图帮助理解"><a href="#四、最后贴图帮助理解" class="headerlink" title="四、最后贴图帮助理解"></a>四、最后贴图帮助理解</h4><p><img src="/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVVM%E5%92%8CMVC.png" alt="img"></p>
+<h4 id="四、最后贴图帮助理解"><a href="#四、最后贴图帮助理解" class="headerlink" title="四、最后贴图帮助理解"></a>四、最后贴图帮助理解</h4><p><img src="/2019/11/20/%E6%80%BB%E7%BB%93MVVM%E5%92%8CMVC/MVVM%E5%92%8CMVC.png" alt="MVVM和MVC"></p>
 
       
 
@@ -1046,6 +971,72 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/09/15/html5%E6%96%B0%E7%89%B9%E6%80%A7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于async-await-的串行和并行问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/">关于async/await的串行和并行问题</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2019-08-20T02:48:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>async和await是es6中的新语法,它的诞生彻底解决了JS回调地狱的问题,在这个语法中,我们可以省去以往的promise语法中.then()的写法</p>
+<h5 id="加async修饰的方法有两个作用："><a href="#加async修饰的方法有两个作用：" class="headerlink" title="加async修饰的方法有两个作用："></a>加async修饰的方法有两个作用：</h5><p>1.该方法中可以使用await<br>2.该方法需要返回一个promise</p>
+        
+          <a class="article-more-a" href="/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/20/%E5%85%B3%E4%BA%8Easync-await-%E7%9A%84%E4%B8%B2%E8%A1%8C%E5%92%8C%E5%B9%B6%E8%A1%8C%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
 
